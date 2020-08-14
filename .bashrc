@@ -4,6 +4,7 @@
 # My bashrc requires following packages (Arch Linux):
 # git
 # youtube-dl
+# neovim
 
 #
 # Exports
@@ -31,6 +32,9 @@ alias cv='nvim $HOME/.config/nvim/*.vim'
 
 # dotfiles bare git repo shortcut
 alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+
+# youtube-dl highest quality video
+alias yt='youtube-dl -f best --add-metadata'
 
 # youtube-dl highest quality mp3
 alias ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata'
