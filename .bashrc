@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # ~/.bashrc
 #
@@ -11,10 +12,10 @@
 #
 
 # Add my scripts to the path
-export PATH=$HOME/.scripts:$PATH
-export EDITOR="nvim"
-export TERMINAL="konsole"
-export BROWSER="chromium"
+export PATH="$HOME/.scripts:$PATH"
+export EDITOR='nvim'
+export TERMINAL='konsole'
+export BROWSER='chromium'
 
 
 #
