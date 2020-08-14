@@ -12,6 +12,15 @@ export PATH=$HOME/.scripts:$PATH
 # Aliases
 #
 
+# bashrc configuration shortcut
+alias cb='nvim $HOME/.bashrc'
+
+# bash_profile configuration shortcut
+alias cbp='nvim $HOME/.bash_profile'
+
+# neovim configuration shortcut
+alias cv='nvim $HOME/.config/nvim/*.vim'
+
 # dotfiles bare git repo shortcut
 alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
