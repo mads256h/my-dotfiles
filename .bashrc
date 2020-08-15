@@ -41,7 +41,7 @@ alias gsg='git config user.signingKey 1E9F418557B89F609B3FAC840A1363D819345BDB'
 alias gsp='git config user.signingKey 75C8BC5DCCE7257DA133C6CECCD33BA72D54F208'
 
 # youtube-dl highest quality video
-alias yt='youtube-dl -f best --add-metadata --embed-subs --all-subs'
+alias yt='youtube-dl -f bestvideo+bestaudio --add-metadata --embed-subs --all-subs'
 
 # youtube-dl highest quality mp3
 alias ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata'
