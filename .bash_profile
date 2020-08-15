@@ -2,5 +2,6 @@
 #
 # ~/.bash_profile
 #
+[ -z $GITHUB_WORKSPACE ] || $HOME="$GITHUB_WORKSPACE"
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f $HOME/.bashrc ]] && . $HOME/.bashrc
