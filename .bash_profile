@@ -2,6 +2,6 @@
 #
 # ~/.bash_profile
 #
-[ -z $GITHUB_WORKSPACE ] || $HOME="$GITHUB_WORKSPACE"
+[ -z "$GITHUB_WORKSPACE" ] || export HOME="$GITHUB_WORKSPACE"
 
-[[ -f $HOME/.bashrc ]] && . $HOME/.bashrc
+[[ -f "$HOME"/.bashrc ]] && . "$HOME"/.bashrc
