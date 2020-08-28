@@ -1,0 +1,15 @@
+[user]
+	email = mail@madsmogensen.dk
+	name = Mads Mogensen
+	signingkey = 0A1363D819345BDB
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[commit]
+	gpgsign = true
+[pull]
+	rebase = false
+[alias]
+	exec = "!exec "
