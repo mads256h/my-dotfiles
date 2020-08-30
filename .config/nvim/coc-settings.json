@@ -1,0 +1,4 @@
+{
+	"clangd.arguments": ["--clang-tidy"],
+	"clangd.semanticHighlighting": true
+}
