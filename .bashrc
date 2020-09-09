@@ -40,6 +40,15 @@ alias gsg='git config user.signingKey 1E9F418557B89F609B3FAC840A1363D819345BDB'
 # set signing key in git repo to main key
 alias gsp='git config user.signingKey 75C8BC5DCCE7257DA133C6CECCD33BA72D54F208'
 
+# connect to sshfs when on home network
+alias s='sshfs -o idmap=user -C mads@server-mads.lan:/mnt/share ~/mnt/'
+
+# connect to sshfs on other network
+alias sp='sshfs -o idmap=user -C mads@home.madsmogensen.dk:/mnt/share ~/mnt/'
+
+# unmount sshfs
+alias us='fusermount3 -u ~/mnt'
+
 # youtube-dl highest quality video
 alias yt='youtube-dl -f bestvideo+bestaudio --add-metadata --embed-subs --all-subs'
 
