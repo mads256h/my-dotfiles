@@ -31,6 +31,12 @@ alias cbp='nvim $HOME/.bash_profile'
 # neovim configuration shortcut
 alias cv='nvim $HOME/.config/nvim/*.vim'
 
+# connect to server on home network
+alias cs='ssh server-mads.lan'
+
+# connect to tserver on other network
+alias csp='ssh home.madsmogensen.dk'
+
 # dotfiles bare git repo shortcut
 alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
