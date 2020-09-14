@@ -61,6 +61,9 @@ alias yt='youtube-dl -f bestvideo+bestaudio --add-metadata --embed-subs --all-su
 # youtube-dl highest quality mp3
 alias ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata'
 
+# get weather from Aalborg
+alias we='curl https://wttr.in/Aalborg'
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
