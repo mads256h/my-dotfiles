@@ -1,0 +1,13 @@
+# Silences PCI AER errors on my MSI laptop
+
+[Unit]
+Description=Silence AER errors
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/setpci -v -d 8086:a110 CAP_EXP+0x8.w=0x0e
+RemainAfterExit=yes
+
+[Install]
+WantedBy=network.target

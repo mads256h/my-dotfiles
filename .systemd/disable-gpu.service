@@ -1,0 +1,13 @@
+# Disable the discrete nvidia GPU to save power.
+
+[Unit]
+Description=Disable discrete GPU
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c "/usr/bin/echo \"\\_SB.PCI0.PEG0.PEGP._OFF\" > /proc/acpi/call; cat /proc/acpi/call; echo -n \"1\" > /sys/bus/pci/devices/0000:01:00.0/remove"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical.target
