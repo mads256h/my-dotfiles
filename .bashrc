@@ -6,6 +6,8 @@
 # git
 # youtube-dl
 # neovim
+# sshfs
+# curl
 
 #
 # Exports
