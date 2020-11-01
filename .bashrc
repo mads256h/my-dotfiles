@@ -40,9 +40,6 @@ alias csp='ssh home.madsmogensen.dk'
 # dotfiles bare git repo shortcut
 alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
-# set signing key in git repo to github key
-alias gsg='git config user.signingKey 1E9F418557B89F609B3FAC840A1363D819345BDB'
-
 # set signing key in git repo to main key
 alias gsp='git config user.signingKey 75C8BC5DCCE7257DA133C6CECCD33BA72D54F208'
 

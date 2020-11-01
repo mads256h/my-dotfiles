@@ -1,7 +1,7 @@
 [user]
 	email = mail@madsmogensen.dk
 	name = Mads Mogensen
-	signingkey = 0A1363D819345BDB
+	signingKey = 75C8BC5DCCE7257DA133C6CECCD33BA72D54F208
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
