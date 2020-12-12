@@ -20,6 +20,12 @@ Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
+" Copy and pase shortcuts
+nnoremap <C-c> "+yy
+vnoremap <C-c> "+y
+map <C-v> "+p
+
+
 let g:airline_powerline_fonts = 1
 set number
 set relativenumber
