@@ -18,8 +18,6 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'kana/vim-operator-user'
 
-Plug 'rhysd/vim-clang-format'
-
 call plug#end()
 
 " Copy and pase shortcuts
@@ -125,9 +123,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" Formatting code.
+xmap <leader>f :call CocAction('format')<CR>
+nmap <leader>f :call CocAction('format')<CR>
 
 augroup mygroup
   autocmd!
