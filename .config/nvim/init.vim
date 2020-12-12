@@ -8,6 +8,8 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'junegunn/goyo.vim'
+
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 Plug 'lervag/vimtex'
@@ -24,6 +26,9 @@ call plug#end()
 nnoremap <C-c> "+yy
 vnoremap <C-c> "+y
 map <C-v> "+p
+
+" Goyo
+nmap <leader>g :Goyo<CR>
 
 
 let g:airline_powerline_fonts = 1
