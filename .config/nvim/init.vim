@@ -31,7 +31,7 @@ map <C-v> "+p
 nmap <leader>g :Goyo<CR>
 
 " Go to next <++>, delete it and go to insert mode
-nmap <space>n /<++><CR>va<c
+nmap <space>n /<++><CR>ca<
 
 " Go to next <++?>, and replace all of those in the document
 nmap <space>b /<++.><CR>va<y/<C-r>"<CR>:%s/<C-r>"//g<left><left>
