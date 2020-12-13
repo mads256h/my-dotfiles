@@ -30,6 +30,9 @@ map <C-v> "+p
 " Goyo
 nmap <leader>g :Goyo<CR>
 
+" Go to next <++>, delete it and go to insert mode
+nmap <space>n /<++><CR>4xa
+
 
 let g:airline_powerline_fonts = 1
 set number
@@ -40,6 +43,25 @@ let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-json', 'coc-html', 'coc-sh',
 let g:clang_format#detect_style_file=1
 
 
+" Indentation
+
+set autoindent " always set autoindenting on
+
+set copyindent " copy the previous indentation on autoindenting
+
+set expandtab " expand tabs by default (overloadable per file type)
+
+set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
+
+set shiftwidth=2 " number of spaces to use for autoindenting
+
+set smartindent
+
+set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
+
+set softtabstop=2 " when hitting <BS>, pretend like a tab is removed, even if spaces
+
+set tabstop=2 " tabs are n spaces
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -195,3 +217,16 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+
+"
+" Templates
+"
+
+" Sections
+nmap <space>lch o\chapter{<++>}<CR><ESC>k0
+nmap <space>lse o\section{<++>}<CR><ESC>k0
+nmap <space>lss o\subsection{<++>}<CR><ESC>k0
+
+" Math
+nmap <space>leq o\begin{equation}<CR><++><CR>\end{equation}<CR><ESC>2k0
+nmap <space>les o\begin{equation}<CR>\begin{aligned}<CR><++><CR>\end{aligned}<CR>\end{equation}<CR><ESC>3k0

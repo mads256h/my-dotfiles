@@ -1,0 +1,87 @@
+\documentclass[a4paper]{article}
+
+% Set up encoding and font
+\usepackage[T1]{fontenc}    % Support more characters (8-bit instead of 7-bit)
+\usepackage[utf8]{inputenc} % utf8 input
+\usepackage{lmodern}        % Nice font
+
+
+% Set up language
+\usepackage{fvextra}       % Needed by csquotes
+\usepackage{csquotes}      % Needed by babel
+\usepackage[danish]{babel} % Language support
+
+
+% Graphics, figures, etc...
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}    % Used for \begin{figure}[H]
+\usepackage{pgf-pie}  % Pie diagrams
+
+
+% Math
+\usepackage{amsmath}                          % Math stuff
+\usepackage{amssymb}                          % Math symbols
+\DeclareMathSymbol{*}{\mathbin}{symbols}{"01} % Makes the * symbol a times symbol in math mode
+\usepackage{sagetex}                          % SageTex
+
+
+% Quoting
+\usepackage{dirtytalk}
+
+
+% Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+% Code highlighting
+\usepackage{minted}
+\renewcommand{\listingscaption}{Kode uddrag}
+
+
+% Placeholder text
+\usepackage{lipsum}
+
+
+% Make things fit
+\usepackage[final, babel]{microtype}
+
+
+% Clickable references, urls and other pdf stuff
+% This should be included last
+\usepackage{xurl}     % Breakable links
+\usepackage{hyperref} % References
+\hypersetup{%
+  plainpages=false,%
+	pdfauthor={Mads Mogensen},%
+	pdftitle={<++>},%
+	bookmarksnumbered=true,%
+	breaklinks,%                Breaks links so they dont go out into the margins
+	hidelinks,%
+	colorlinks=false,%
+	citecolor=black,%
+	filecolor=black,%
+	linkcolor=black,%
+	urlcolor=black,%
+	pdfstartview=FitH%
+}
+
+
+
+
+\title{<++>}
+\author{Mads Mogensen}
+\date{<++>}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+
+<++>
+
+\end{document}
