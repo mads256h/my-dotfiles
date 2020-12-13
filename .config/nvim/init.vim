@@ -28,7 +28,7 @@ vnoremap <C-c> "+y
 map <C-v> "+p
 
 " Goyo
-nmap <leader>g :Goyo<CR>
+nmap <space>g :Goyo<CR>
 
 " Go to next <++>, delete it and go to insert mode
 nmap <space>n /<++><CR>ca<
@@ -242,3 +242,11 @@ nmap <space>lss o\subsection{<++>}<CR><ESC>k0
 " Math
 nmap <space>leq o\begin{equation}<CR><++><CR>\end{equation}<CR><ESC>2k0
 nmap <space>les o\begin{equation}<CR>\begin{aligned}<CR><++><CR>\end{aligned}<CR>\end{equation}<CR><ESC>3k0
+
+" Figure
+nmap <space>lfg o\begin{figure}[H]<CR>\centering<CR>\includegraphics[width=\textwidth]{<++>}<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><ESC>4k0
+nmap <space>lfn o\begin{figure}[H]<CR>\centering<CR><++><CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><ESC>4k0
+
+" Listings
+nmap <space>llc o\begin{listing}[H]<CR>\begin{minted}[breaklines, linenos]{<++>}<CR><++><CR>\end{minted}<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{listing}<CR><ESC>6k0Vj:s/^  //<CR>:noh<CR>k
+nmap <space>lli o\begin{listing}[H]<CR>\inputminted[breaklines, linenos, firstline=<++>, lastline=<++>]{<++>}{<++>}<CR>\caption{<++>}<CR>\label{lst:<++>}<CR>\end{listing}<CR><ESC>4k0
