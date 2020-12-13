@@ -11,4 +11,3 @@ scp root@"$URL":/mnt/share/Mads/\{Passwords.kdbx,otp_accounts.json.aes\} ~/
 
 # Make Passwords.kdbx and otp_accounts.json.aes read only
 chmod 400 ~/Passwords.kdbx ~/otp_accounts.json.aes
-

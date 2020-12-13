@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Usage: tmpl <file> [type]
+
+base_path="$HOME/.local/templates/"
+extension="${1##*.}"
+template_path="$base_path/$extension/${2:-main}.$extension"
+
+error()
+{
+  echo "Error: $1" 1>&2
+	exit 1
+}
+
+
+[ -d "$base_path" ]     || error "No templates directory found"
+[ -f "$template_path" ] || error "No template found"
+
+[ -f "$1" ]             && error "File already exists"
+
+cp "$template_path" "$1"
