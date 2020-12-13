@@ -9,7 +9,7 @@ template_path="$base_path/$extension/${2:-main}.$extension"
 error()
 {
   echo "Error: $1" 1>&2
-	exit 1
+  exit 1
 }
 
 
