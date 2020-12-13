@@ -26,7 +26,7 @@ jobs:
       uses: ludeeus/action-shellcheck@0.5.0
       with:
         # Paths to ignore when running ShellCheck
-        ignore: .config/,.local/
+        ignore: .config/;.local/
         # Minimum severity of errors to consider. Options: [error, warning, info, style]
         severity: style
         # Run shellcheck on _all_ files at once, instead of one at a time
