@@ -37,13 +37,13 @@ nmap <space>n /<++><CR>ca<
 nmap <space>b /<++.><CR>va<y/<C-r>"<CR>:%s/<C-r>"//g<left><left>
 
 " Create template and edit
-function TmplFunc(file)
-  execute '!tmpl' a:file
+function TmplFunc(...)
+  execute '!tmpl '.join(a:000)
   if v:shell_error == 0
-    execute 'tabedit' a:file
+    execute 'tabedit' a:1
   endif
 endfunction
-com! -nargs=1 Tmpl :call TmplFunc(<f-args>)
+com! -nargs=* Tmpl :call TmplFunc(<f-args>)
 
 
 let g:airline_powerline_fonts = 1
