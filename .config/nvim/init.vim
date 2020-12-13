@@ -33,6 +33,18 @@ nmap <leader>g :Goyo<CR>
 " Go to next <++>, delete it and go to insert mode
 nmap <space>n /<++><CR>4xa
 
+" Go to next <++?>, and replace all of those in the document
+nmap <space>b /<++.><CR>va<y/<C-r>"<CR>:%s/<C-r>"//g<left><left>
+
+" Create template and edit
+function TmplFunc(file)
+  execute '!tmpl' a:file
+  if v:shell_error == 0
+    execute 'tabedit' a:file
+  endif
+endfunction
+com! -nargs=1 Tmpl :call TmplFunc(<f-args>)
+
 
 let g:airline_powerline_fonts = 1
 set number
