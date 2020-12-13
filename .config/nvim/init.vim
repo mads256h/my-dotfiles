@@ -18,6 +18,8 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'kana/vim-operator-user'
 
+Plug 'tpope/vim-commentary'
+
 call plug#end()
 
 " Copy and pase shortcuts
