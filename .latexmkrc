@@ -1,5 +1,5 @@
-$latex = "latex %O --shell-escape %S";
-$pdflatex = "pdflatex %O --shell-escape %S";
+$latex = "latex %O --shell-escape -interaction=nonstopmode --synctex=1 %S";
+$pdflatex = "pdflatex %O --shell-escape -interaction=nonstopmode --synctex=1 %S";
 
 
 $latex = "$latex ; python /usr/share/texmf/tex/latex/sagetex/run-sagetex-if-necessary.py %B";

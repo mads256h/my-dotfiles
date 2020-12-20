@@ -2,19 +2,22 @@
 
 # Usage: tmpl <file> [type]
 
-base_path="$HOME/.local/templates/"
-extension="${1##*.}"
-template_path="$base_path/$extension/${2:-main}.$extension"
-
 error()
 {
   echo "Error: $1" 1>&2
   exit 1
 }
 
+[ "$#" -lt 1 ] || [ "$#" -gt 2 ] && error "Invalid amount of arguments"
 
-[ -d "$base_path" ]     || error "No templates directory found"
-[ -f "$template_path" ] || error "No template found"
+
+base_path="$HOME/.local/templates/"
+extension="${1##*.}"
+template_path="$base_path/$extension/${2:-main}.$extension"
+
+
+[ -d "$base_path" ]     || error "Templates directory does not exist"
+[ -f "$template_path" ] || error "Template not found"
 
 [ -f "$1" ]             && error "File already exists"
 
