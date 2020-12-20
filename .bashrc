@@ -42,6 +42,9 @@ alias csp='ssh home.madsmogensen.dk'
 # dotfiles bare git repo shortcut
 alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
+# filemanager (vifm)
+alias fm='vifmrun'
+
 # set signing key in git repo to main key
 alias gsp='git config user.signingKey 75C8BC5DCCE7257DA133C6CECCD33BA72D54F208'
 
