@@ -238,10 +238,15 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 nmap <space>lch o\chapter{<++>}<CR><ESC>k0
 nmap <space>lse o\section{<++>}<CR><ESC>k0
 nmap <space>lss o\subsection{<++>}<CR><ESC>k0
+nmap <space>lsS o\subsubsection{<++>}<CR><ESC>k0
+nmap <space>lsp o\paragraph{<++>}<CR><ESC>k0
+nmap <space>lsP o\subparagraph{<++>}<CR><ESC>k0
 
 " Math
 nmap <space>leq o\begin{equation}<CR><++><CR>\end{equation}<CR><ESC>2k0
 nmap <space>les o\begin{equation}<CR>\begin{aligned}<CR><++><CR>\end{aligned}<CR>\end{equation}<CR><ESC>3k0
+nmap <space>let o\begin{theorem}<CR><++><CR>\end{theorem}<CR><ESC>2k0
+nmap <space>lep o\begin{proof}<CR><++><CR>\end{proof}<CR><ESC>2k0
 
 " Figure
 nmap <space>lfg o\begin{figure}[H]<CR>\centering<CR>\includegraphics[width=\textwidth]{<++>}<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><ESC>4k0
