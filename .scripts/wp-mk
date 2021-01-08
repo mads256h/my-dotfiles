@@ -4,8 +4,12 @@ WALLPAPER_DIR="$HOME/Billeder/wallpapers"
 OUT_DIR="$HOME/.local/share/wallpapers"
 
 mkdir "$OUT_DIR" 2>/dev/null
+rm "$OUT_DIR"/*
+
+cnt="$(ls -1 "$WALLPAPER_DIR" | wc -l)"
 
 for file in "$WALLPAPER_DIR"/*; do
   filename=$(basename "$file")
   convert "$file" -resize 1920x1080^ -gravity center -extent 1920x1080 "$OUT_DIR/$filename"
-done
+  echo "$file"
+done | pv -l -s "$cnt" > /dev/null
