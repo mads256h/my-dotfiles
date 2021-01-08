@@ -12,3 +12,6 @@ export XDG_PICTURES_DIR="$(xdg-user-dir PICTURES)"
 export XDG_PUBLICSHARE_DIR="$(xdg-user-dir PUBLICSHARE)"
 export XDG_TEMPLATES_DIR="$(xdg-user-dir TEMPLATES)"
 export XDG_VIDEOS_DIR="$(xdg-user-dir VIDEOS)"
+
+# Private dir
+export PRIVATE_DIR="$HOME/Private"

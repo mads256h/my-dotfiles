@@ -10,6 +10,9 @@ alias cb='nvim $HOME/.bashrc'
 # bash alias shortcut
 alias cba='nvim $XDG_CONFIG_HOME/bash/alias.sh'
 
+# bash dirs shortcut
+alias cbd='nvim $XDG_CONFIG_HOME/bash/dirs.sh'
+
 # bash_profile configuration shortcut
 alias cbp='nvim $HOME/.bash_profile'
 

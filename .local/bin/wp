@@ -3,6 +3,6 @@
 WALLPAPER_DIR="$XDG_DATA_HOME/wallpapers"
 
 while true; do
-  ls -1 -d "$WALLPAPER_DIR"/* | shuf | tail -1 | xargs feh --bg-scale
+  ls -1 -d "$WALLPAPER_DIR"/* | shuf | tail -1 | xargs feh --no-fehbg --bg-scale
   sleep 5m
 done
