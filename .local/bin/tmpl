@@ -11,7 +11,7 @@ error()
 [ "$#" -lt 1 ] || [ "$#" -gt 2 ] && error "Invalid amount of arguments"
 
 
-base_path="$HOME/.local/templates/"
+base_path="$XDG_DATA_HOME/templates/"
 extension="${1##*.}"
 template_path="$base_path/$extension/${2:-main}.$extension"
 
