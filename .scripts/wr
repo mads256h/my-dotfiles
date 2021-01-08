@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Usage: wr <left|right|all>
+
 case "$1" in
   "left" ) wmctrl -l -G | awk '$2 != -1 && $3 < 1920 {print $1, $3 + 1920, $4}' | xargs -L1 xdotool windowmove ;;
   "right" ) wmctrl -l -G | awk '$2 != -1 && $3 >= 3840 {print $1, $3 - 1920, $4}' | xargs -L1 xdotool windowmove ;;

@@ -16,8 +16,11 @@
 # Add my scripts to the path
 export PATH="$HOME/.scripts:$PATH"
 export EDITOR='nvim'
-export TERMINAL='konsole'
+export TERMINAL='st'
 export BROWSER='chromium'
+
+
+
 
 
 #
@@ -33,6 +36,9 @@ alias cbp='nvim $HOME/.bash_profile'
 # neovim configuration shortcut
 alias cv='nvim $HOME/.config/nvim/*.vim'
 
+# i3 configuration shortcut
+alias ci3='nvim $HOME/.config/i3/config'
+
 # connect to server on home network
 alias cs='ssh server-mads.lan'
 
@@ -40,7 +46,7 @@ alias cs='ssh server-mads.lan'
 alias csp='ssh home.madsmogensen.dk'
 
 # dotfiles bare git repo shortcut
-alias dotgit='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dotgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # filemanager (vifm)
 alias fm='vifmrun'
@@ -70,4 +76,4 @@ alias we='curl https://wttr.in/Aalborg'
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+export PS1="\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\u\[$(tput sgr0)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 3)\]\W\[$(tput setaf 1)\]]\[$(tput sgr0)\]\\$ \[$(tput sgr0)\]"

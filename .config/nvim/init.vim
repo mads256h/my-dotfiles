@@ -234,6 +234,9 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Templates
 "
 
+" Compile with latexmk -f
+nmap <space>lm :!latexmk -f<CR>
+
 " Sections
 nmap <space>lch o\chapter{<++>}<CR><ESC>k0
 nmap <space>lse o\section{<++>}<CR><ESC>k0

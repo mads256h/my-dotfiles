@@ -1,0 +1,11 @@
+#!/bin/sh
+
+WALLPAPER_DIR="$HOME/Billeder/wallpapers"
+OUT_DIR="$HOME/.local/share/wallpapers"
+
+mkdir "$OUT_DIR" 2>/dev/null
+
+for file in "$WALLPAPER_DIR"/*; do
+  filename=$(basename "$file")
+  convert "$file" -resize 1920x1080^ -gravity center -extent 1920x1080 "$OUT_DIR/$filename"
+done
