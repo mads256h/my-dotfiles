@@ -7,6 +7,9 @@
 # bashrc configuration shortcut
 alias cb='nvim $HOME/.bashrc'
 
+# bash alias shortcut
+alias cba='nvim $XDG_CONFIG_HOME/bash/alias.sh'
+
 # bash_profile configuration shortcut
 alias cbp='nvim $HOME/.bash_profile'
 
@@ -15,6 +18,9 @@ alias cv='nvim $HOME/.config/nvim/*.vim'
 
 # i3 configuration shortcut
 alias ci3='nvim $HOME/.config/i3/config'
+
+# xinitrc configuration shortcut
+alias cx='nvim $HOME/.xinitrc'
 
 # connect to server on home network
 alias cs='ssh server-mads.lan'
