@@ -256,5 +256,5 @@ nmap <space>lfg o\begin{figure}[H]<CR>\centering<CR>\includegraphics[width=\text
 nmap <space>lfn o\begin{figure}[H]<CR>\centering<CR><++><CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><ESC>4k0
 
 " Listings
-nmap <space>llc o\begin{listing}[H]<CR>\begin{minted}[breaklines, linenos]{<++>}<CR><++><CR>\end{minted}<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{listing}<CR><ESC>6k0Vj:s/^  //<CR>:noh<CR>k
+nmap <space>llc o\begin{listing}[H]<CR>\begin{minted}[breaklines, linenos]{<++>}<CR><++><CR>\end{minted}<CR>\caption{<++>}<CR>\label{lst:<++>}<CR>\end{listing}<CR><ESC>6k0Vj:s/^  //<CR>:noh<CR>k
 nmap <space>lli o\begin{listing}[H]<CR>\inputminted[breaklines, linenos, firstline=<++>, lastline=<++>]{<++>}{<++>}<CR>\caption{<++>}<CR>\label{lst:<++>}<CR>\end{listing}<CR><ESC>4k0
