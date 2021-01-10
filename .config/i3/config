@@ -35,9 +35,6 @@ gaps outer 15
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 #exec --no-startup-id nm-applet
 
-# Open kwallet
-exec --no-startup-id /usr/lib/pam_kwallet_init
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_media pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_media
@@ -59,8 +56,14 @@ bindsym $mod+Return exec i3-sensible-terminal
 # start vifm
 bindsym $mod+g exec st -e vifmrun
 
-# start browser
-bindsym $mod+w exec $BROWSER
+# start browser with the Other profile
+bindsym $mod+w exec $BROWSER --profile-directory="Profile 4"
+
+# start browser with the Google profile
+bindsym $mod+Shift+w exec $BROWSER --profile-directory="Profile 2"
+
+# start neomutt
+bindsym $mod+m exec st -e neomutt
 
 # kill focused window
 bindsym $mod+Shift+q kill
