@@ -9,3 +9,12 @@
 .glue-page-header__background-color {
   background-image: none;
 }
+
+.GlueHeader__background-overlay {
+  display: none;
+}
+
+.GlueHeader__background-color {
+  background-color: var(--modspotify_main_bg) !important;
+  background-image: none;
+}
