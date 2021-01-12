@@ -43,9 +43,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_media
 
 # Use playerctl to control media
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous && sleep 0.2 && $refresh_media
-bindsym XF86AudioNext exec --no-startup-id playerctl next && sleep 0.2 && $refresh_media
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause && sleep 0.2 && $refresh_media
+bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous && sleep 0.2 && $refresh_media
+bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next && sleep 0.2 && $refresh_media
+bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause && sleep 0.2 && $refresh_media
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -62,8 +62,14 @@ bindsym $mod+w exec $BROWSER --profile-directory="Profile 4"
 # start browser with the Google profile
 bindsym $mod+Shift+w exec $BROWSER --profile-directory="Profile 2"
 
+# start browser with the aau profile
+bindsym $mod+Mod1+w exec $BROWSER --profile-directory="Profile 8"
+
 # start neomutt
 bindsym $mod+m exec st -e neomutt
+
+# start spotify
+bindsym $mod+s exec spotify
 
 # kill focused window
 bindsym $mod+Shift+q kill

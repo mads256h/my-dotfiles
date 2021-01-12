@@ -10,5 +10,4 @@ wp &
 mail-up &
 dunst &
 picom &
-playerctld &
 i3
