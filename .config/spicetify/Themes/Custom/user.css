@@ -18,3 +18,7 @@
   background-color: var(--modspotify_main_bg) !important;
   background-image: none;
 }
+
+.header-verified-check {
+  background-color: var(--modspotify_blue) !important;
+}
