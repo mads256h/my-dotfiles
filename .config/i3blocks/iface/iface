@@ -17,6 +17,8 @@
 
 #------------------------------------------------------------------------
 
+[ -z "${BLOCK_BUTTON}" ] || ($TERMINAL -e nmtui 2>&1 >/dev/null &) 2>&1 >/dev/null
+
 # Use the provided interface, otherwise the device used for the default route.
 IF="${IFACE:-$BLOCK_INSTANCE}"
 IF="${IF:-$(ip route | awk '/^default/ { print $5 ; exit }')}"
