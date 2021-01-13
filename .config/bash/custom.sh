@@ -2,6 +2,6 @@
 
 # Include per install stuff here
 
-BROWSER_PROFILE_OTHER=""
-BROWSER_PROFILE_GOOGLE=""
-BROWSER_PROFILE_AAU=""
+export BROWSER_PROFILE_OTHER="Profile 3"
+export BROWSER_PROFILE_GOOGLE="Profile 2"
+export BROWSER_PROFILE_AAU="Profile 1"
