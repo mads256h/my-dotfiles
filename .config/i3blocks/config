@@ -94,6 +94,22 @@ interval=30
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+[ssid]
+INTERFACE=wlp2s0
+interval=60
+separator=false
+
+[wifi]
+INTERFACE=wlp2s0
+COLOR_GE80=#B7CE42
+COLOR_GE60=#FEA63C
+COLOR_GE40=#FFE863
+COLOR_LOWR=#E84F4F
+COLOR_DOWN=#E84F4F
+#label=
+interval=60
+separator=false
+
 [iface]
 #IFACE=wlan0
 color=#b7ce42
@@ -101,11 +117,6 @@ color=#b7ce42
 interval=10
 separator=false
 
-#[wifi]
-#INTERFACE=wlp3s0
-#label=wifi:
-#interval=10
-#separator=false
 
 [bandwidth]
 #INTERFACE=eth0
