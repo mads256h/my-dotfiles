@@ -32,6 +32,9 @@ source "$XDG_CONFIG_HOME/bash/progs.sh"
 # Aliases
 source "$XDG_CONFIG_HOME/bash/alias.sh"
 
+# Custom stuff
+source "$XDG_CONFIG_HOME/bash/custom.sh"
+
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
