@@ -101,11 +101,6 @@ separator=false
 
 [wifi]
 INTERFACE=wlp2s0
-COLOR_GE80=#B7CE42
-COLOR_GE60=#FEA63C
-COLOR_GE40=#FFE863
-COLOR_LOWR=#E84F4F
-COLOR_DOWN=#E84F4F
 #label=
 interval=60
 separator=false
