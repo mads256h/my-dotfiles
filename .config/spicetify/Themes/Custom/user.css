@@ -54,4 +54,40 @@
 .SearchInput, .SearchInput__label, .SearchInput__input {
   color: var(--modspotify_main_fg) !important;
   background-color: var(--modspotify_main_bg) !important;
+  width: 100% !important;
+}
+
+.content-top-bar__search-input {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+#header {
+  background-color: var(--modspotify_main_bg);
+}
+
+.content-top-bar__profile {
+  flex: none !important;
+}
+
+.content-top-bar__profile-area {
+  margin-left: 0 !important;
+  min-width: 0 !important;
+}
+
+.content-top-bar__profile-link {
+  display: none !important;
+}
+
+.LeftSidebar__section {
+  display: none;
+}
+
+.LeftSidebar__section.LeftSidebar__section--rootlist {
+  display: block !important;
+  margin-top: 24px;
+}
+
+.tl-date-added, .tl-time {
+  font-family: Hack !important;
 }
