@@ -122,14 +122,23 @@ interval=5
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[cpu_usage2]
-label=CPU
-interval=10
-min_width=CPU 100.00%
+#[cpu_usage2]
+#label=CPU
+#interval=10
+#min_width=CPU 100.00%
 #separator=false
 
 [load_average]
 label=⌛
+interval=10
+separator=false
+
+# Temperature
+#
+# Support multiple chips, though lm-sensors.
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[temperature]
 interval=10
 
 # Battery indicator
@@ -151,14 +160,6 @@ interval=1
 #[openvpn]
 #interval=20
 
-# Temperature
-#
-# Support multiple chips, though lm-sensors.
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
 
 # Key indicators
 #
