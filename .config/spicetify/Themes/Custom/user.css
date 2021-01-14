@@ -22,3 +22,31 @@
 .header-verified-check {
   background-color: var(--modspotify_blue) !important;
 }
+
+.tl-explicit .label {
+  display: none;
+}
+
+.tl-explicit {
+  width: 0 !important;
+}
+
+.tl-more {
+  display: none;
+}
+
+.tl-play {
+  display: none;
+}
+
+.tl-save {
+  display: none;
+}
+
+#new-playlist-button-mount-point {
+  display: none;
+}
+
+#video-fullscreen-button {
+  display: none;
+}
