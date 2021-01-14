@@ -50,3 +50,8 @@
 #video-fullscreen-button {
   display: none;
 }
+
+.SearchInput, .SearchInput__label, .SearchInput__input {
+  color: var(--modspotify_main_fg) !important;
+  background-color: var(--modspotify_main_bg) !important;
+}
