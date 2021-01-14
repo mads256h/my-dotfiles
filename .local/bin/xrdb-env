@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Use with eval to export environment variables
+xrdb -query | sed 's/\*\.//;s/://' | awk '{print "export XRDB_" toupper($1) "=\"" $2 "\""}'
