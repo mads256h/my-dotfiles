@@ -1,4 +1,4 @@
 #!/bin/sh
 
-[ -z "${BLOCK_BUTTON}" ] || ($TERMINAL -e calcurse 2>&1 >/dev/null &) 2>&1 > /dev/null
+[ "$BLOCK_BUTTON" = "1" ] && ($TERMINAL -e calcurse 2>&1 >/dev/null &) 2>&1 > /dev/null
 date '+%Y-%m-%d %H:%M:%S'

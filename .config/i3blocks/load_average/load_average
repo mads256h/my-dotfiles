@@ -14,7 +14,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-[ -z "${BLOCK_BUTTON}" ] || ($TERMINAL -e htop 2>&1 >/dev/null &) 2>&1 >/dev/null
+LOAD_COLOR=${LOAD_COLOR:-$XRDB_COLOR1}
+
+[ "$BLOCK_BUTTON" = "1" ] && ($TERMINAL -e htop &) >/dev/null 2>&1
 
 load="$(cut -d ' ' -f1 /proc/loadavg)"
 cpus="$(nproc)"
@@ -26,10 +28,10 @@ echo "$load"
 echo "$load"
 
 # color if load is too high
-awk -v cpus=$cpus -v cpuload=$load '
+awk -v cpus="$cpus" -v cpuload="$load" -v load_color="$LOAD_COLOR" '
     BEGIN {
         if (cpus <= cpuload) {
-            print "#FF0000";
+            print $load_color;
             exit 33;
         }
     }
