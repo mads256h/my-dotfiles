@@ -114,6 +114,8 @@ separator=false
 
 [bandwidth]
 #INTERFACE=eth0
+INLABEL=⬇️
+OUTLABEL=⬆️
 interval=5
 
 # CPU usage
