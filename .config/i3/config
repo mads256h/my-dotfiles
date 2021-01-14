@@ -47,6 +47,11 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous && slee
 bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next && sleep 0.2 && $refresh_media
 bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause && sleep 0.2 && $refresh_media
 
+bindsym $mod+Mod1+Left  exec --no-startup-id playerctl -p spotify previous && sleep 02 && $refresh_media
+bindsym $mod+Mod1+Right exec --no-startup-id playerctl -p spotify next && sleep 0.2 && $refresh_media
+bindsym $mod+Mod1+Up    exec --no-startup-id playerctl -p spotify play-pause && sleep 0.2 && $refresh_media
+bindsym $mod+Mod1+Down  exec --no-startup-id playerctl -p spotify play-pause && sleep 0.2 && $refresh_media
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
