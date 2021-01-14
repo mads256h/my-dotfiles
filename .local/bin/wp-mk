@@ -6,7 +6,7 @@ OUT_DIR="$XDG_DATA_HOME/wallpapers"
 mkdir "$OUT_DIR" 2>/dev/null
 rm "$OUT_DIR"/*
 
-cnt="$(ls -1 "$WALLPAPER_DIR" | wc -l)"
+cnt="$(find "$WALLPAPER_DIR" | wc -l)"
 
 for file in "$WALLPAPER_DIR"/*; do
   filename=$(basename "$file")
