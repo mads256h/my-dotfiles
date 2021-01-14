@@ -33,7 +33,7 @@ source "$XDG_CONFIG_HOME/bash/progs.sh"
 source "$XDG_CONFIG_HOME/bash/alias.sh"
 
 # xrdb environment variables
-eval $(xrdb-env)
+#eval $(xrdb-env)
 
 # Custom stuff
 source "$XDG_CONFIG_HOME/bash/custom.sh"

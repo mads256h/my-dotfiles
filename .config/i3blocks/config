@@ -112,7 +112,6 @@ separator=false
 
 [iface]
 #IFACE=wlan0
-color=#b7ce42
 #color=#00FF00
 interval=10
 separator=false
