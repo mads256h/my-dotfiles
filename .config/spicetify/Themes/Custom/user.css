@@ -91,3 +91,7 @@
 .tl-date-added, .tl-time {
   font-family: Hack !important;
 }
+
+#context-menu-item-share-share\:facebook, #context-menu-item-share-share\:messenger, #context-menu-item-share-share\:twitter, #context-menu-item-share-share\:telegram, #context-menu-item-share-share\:skype, #context-menu-item-share-share\:tumblr {
+  display: none;
+}
