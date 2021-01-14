@@ -1,94 +1,36 @@
-#!/usr/bin/env perl
-#
-# Copyright 2014 Pierre Mavro <deimos@deimos.fr>
-# Copyright 2014 Vivien Didelot <vivien@didelot.org>
-#
-# Licensed under the terms of the GNU GPL v3, or any later version.
-#
-# This script is meant to use with i3blocks. It parses the output of the "acpi"
-# command (often provided by a package of the same name) to read the status of
-# the battery, and eventually its remaining time (to full charge or discharge).
-#
-# The color will gradually change for a percentage below 85%, and the urgency
-# (exit code 33) is set if there is less that 5% remaining.
+#!/bin/sh
 
-use strict;
-use warnings;
-use utf8;
+BAT_NUMBER=${BAT_NUMBER:-1}
+LABEL=${LABEL:-""}
+FULL_LABEL=${FULL_LABEL:-"⚡"}
+DISC_LABEL=${DISC_LABEL:-"🔋"}
+CHAR_LABEL=${CHAR_LABEL:-"🔌"}
+NCHA_LABEL=${NCHA_LABEL:-"🛑"}
+UNKN_LABEL=${UNKN_LABEL:-"♻️"}
+LOWB_LABEL=${LOWB_LABEL:-"❗"}
 
-my $acpi;
-my $status;
-my $percent;
-my $ac_adapt;
-my $full_text;
-my $short_text;
-my $bat_number = $ENV{BAT_NUMBER} || 0;
-my $label = $ENV{LABEL} || "";
 
-# read the first line of the "acpi" command output
-open (ACPI, "acpi -b 2>/dev/null| grep 'Battery $bat_number' |") or die;
-$acpi = <ACPI>;
-close(ACPI);
+battery="/sys/class/power_supply/BAT$BAT_NUMBER"
 
-# fail on unexpected output
-if (not defined($acpi)) {
-    # don't print anything to stderr if there is no battery
-    exit(0);
-}
-elsif ($acpi !~ /: ([\w\s]+), (\d+)%/) {
-	die "$acpi\n";
-}
+[ -d "$battery" ] || exit
 
-$status = $1;
-$percent = $2;
-$full_text = "$label$percent%";
 
-if ($status eq 'Discharging') {
-	$full_text .= ' DIS';
-} elsif ($status eq 'Charging') {
-	$full_text .= ' CHR';
-} elsif ($status eq 'Unknown') {
-	open (AC_ADAPTER, "acpi -a |") or die;
-	$ac_adapt = <AC_ADAPTER>;
-	close(AC_ADAPTER);
+bat_status=$(cat "$battery/status")
+bat_capacity=$(cat "$battery/capacity")
 
-	if ($ac_adapt =~ /: ([\w-]+)/) {
-		$ac_adapt = $1;
+case "$bat_status" in
+  "Full")         bat_status="$FULL_LABEL" ;;
+  "Discharging")  bat_status="$DISC_LABEL" ;;
+  "Charging")     bat_status="$CHAR_LABEL" ;;
+  "Not charging") bat_status="$NCHA_LABEL" ;;
+  "Unknown")      bat_status="$UNKN_LABEL" ;;
+esac
 
-		if ($ac_adapt eq 'on-line') {
-			$full_text .= ' CHR';
-		} elsif ($ac_adapt eq 'off-line') {
-			$full_text .= ' DIS';
-		}
-	}
-}
+bat_color="$XRDB_FOREGROUND"
 
-$short_text = $full_text;
+[ "$bat_capacity" -lt "25" ] && bat_color="$XRDB_COLOR1"
+[ "$bat_capacity" -lt "25" ] && [ "$bat_status" = "$DISC_LABEL" ] && bat_status="$LOWB_LABEL"
 
-if ($acpi =~ /(\d\d:\d\d):/) {
-	$full_text .= " ($1)";
-}
-
-# print text
-print "$full_text\n";
-print "$short_text\n";
-
-# consider color and urgent flag only on discharge
-if ($status eq 'Discharging') {
-
-	if ($percent < 20) {
-		print "#FF0000\n";
-	} elsif ($percent < 40) {
-		print "#FFAE00\n";
-	} elsif ($percent < 60) {
-		print "#FFF600\n";
-	} elsif ($percent < 85) {
-		print "#A8FF00\n";
-	}
-
-	if ($percent < 5) {
-		exit(33);
-	}
-}
-
-exit(0);
+echo "$LABEL$bat_status$bat_capacity%"
+echo "$LABEL$bat_status$bat_capacity%"
+echo "$bat_color"
