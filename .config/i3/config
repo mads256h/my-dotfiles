@@ -52,6 +52,10 @@ bindsym $mod+Mod1+Right exec --no-startup-id playerctl -p spotify next && sleep 
 bindsym $mod+Mod1+Up    exec --no-startup-id playerctl -p spotify play-pause && sleep 0.2 && $refresh_media
 bindsym $mod+Mod1+Down  exec --no-startup-id playerctl -p spotify play-pause && sleep 0.2 && $refresh_media
 
+# Backlight controls
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
