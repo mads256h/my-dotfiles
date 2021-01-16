@@ -1,0 +1,12 @@
+#!/bin/sh
+
+T_WARN=${T_WARN:-70}
+T_CRIT=${T_CRIT:-90}
+SENSOR_CHIP=${SENSOR_CHIP:-""}
+T_PART=${T_PART:-"[]"}
+
+[ "$SENSOR_CHIP" = "" ] && [ "$HOSTNAME" = "DESKTOP-MADS" ] && SENSOR_CHIP="coretemp-isa-0000"
+
+[ "$T_PART" = "[]" ] || T_PART=".$T_PART"
+
+sensors -A -j $SENSOR_CHIP | jq ".[]$T_PART | with_entries(if (.key|test(\"temp.*_input$\")) then ( {key: .key, value: .value } ) else empty end ) | .[]" | head -n 1 | awk '{ printf("%.1f°C\n",$0) }'

@@ -8,3 +8,6 @@ export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java -Dawt.use
 
 # Make qt use theme configured by qt5ct
 export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# Hostname
+export HOSTNAME=$(hostname)
