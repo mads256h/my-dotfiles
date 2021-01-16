@@ -13,3 +13,5 @@
 	rebase = false
 [alias]
 	exec = "!exec "
+[init]
+	defaultBranch = master
