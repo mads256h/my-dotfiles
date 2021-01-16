@@ -109,5 +109,9 @@ Header__background-color {
 }
 
 .ConnectPopup__button {
- display: none;
+  display: none;
+}
+
+.Header__background {
+  display: none;
 }
