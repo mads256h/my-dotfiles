@@ -220,12 +220,8 @@ fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 " Web
 filextype {*.html,*.htm},<text/html>
-        \ {Open with dwb}
-        \ dwb %f %i &,
-        \ {Open with firefox}
-        \ firefox %f &,
-        \ {Open with uzbl}
-        \ uzbl-browser %f %i &,
+        \ {Open with chromium}
+        \ chromium %f &,
 filetype {*.html,*.htm},<text/html> links, lynx
 
 " Object
@@ -359,6 +355,9 @@ fileviewer {*.docx},
           \<application/
            \vnd.openxmlformats-officedocument.wordprocessingml.document>
          \ docx2txt %f -
+
+" Demo files
+fileviewer {*.dem} demoinfo %f
 
 " TuDu files
 filetype *.tudu tudu -f %c
