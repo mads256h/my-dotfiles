@@ -109,11 +109,14 @@ separator=false
 interval=10
 separator=false
 
+[torrents]
+interval=10
+separator=false
 
 [bandwidth]
 #INTERFACE=eth0
-INLABEL=⬇️
-OUTLABEL=⬆️
+INLABEL=🔻
+OUTLABEL=🔺
 interval=5
 
 # CPU usage
