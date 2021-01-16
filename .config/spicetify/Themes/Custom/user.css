@@ -1,4 +1,4 @@
-.Header__background-color {
+Header__background-color {
   display: none;
 }
 
@@ -98,4 +98,16 @@
 
 #facebook-section {
   display: none;
+}
+
+.ConnectPopup__header {
+  display: none;
+}
+
+.ConnectPopup__devices-image {
+  display: none;
+}
+
+.ConnectPopup__button {
+ display: none;
 }
