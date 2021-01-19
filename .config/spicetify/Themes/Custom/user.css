@@ -123,3 +123,9 @@ Header__background-color {
 .Header__image-inner {
   box-shadow: none !important;
 }
+
+.glue-page-header__background-image-overlay-gradient {
+  background: none !important;
+}
+
+
