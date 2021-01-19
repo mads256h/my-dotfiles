@@ -115,3 +115,11 @@ Header__background-color {
 .Header__background {
   display: none;
 }
+
+.glue-page-header__top-bar {
+  display: none;
+}
+
+.Header__image-inner {
+  box-shadow: none !important;
+}
