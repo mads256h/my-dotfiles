@@ -1,13 +1,12 @@
 #!/bin/sh
 
+APTS_FILE="$XDG_DATA_HOME/calcurse/apts"
+
+
 sed '/^#/d' "$XDG_CONFIG_HOME/calender/config" | xargs -L 1 -I '{}' sh -c "curl -s '{}' | calcurse -q --import -"
 
 
 # Remove duplicates
-CALCURSE_DIR=${CALCURSE_DIR:-${XDG_DATA_HOME}/calcurse}
-NOTES_DIR=${NOTES_DIR:-${CALCURSE_DIR}/notes}
-APTS_FILE=${APTS_FILE:-${CALCURSE_DIR}/apts}
-
 awk \
   '
     BEGIN { FPAT = "[^|]+" }
@@ -27,8 +26,7 @@ awk \
       }
     }
   ' \
- ${APTS_FILE} \
- > ${APTS_FILE}.dedupe
+ "$APTS_FILE" > "$APTS_FILE.dedupe"
 
-mv ${APTS_FILE}.dedupe ${APTS_FILE}
+mv "$APTS_FILE.dedupe" "$APTS_FILE"
 
