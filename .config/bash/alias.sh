@@ -28,8 +28,14 @@ alias cx='nvim $HOME/.xinitrc'
 # connect to server on home network
 alias cs='ssh server-mads.lan'
 
-# connect to tserver on other network
+# connect to server on other network
 alias csp='ssh home.madsmogensen.dk'
+
+# connect to desktop
+alias cde='ssh desktop-mads.router.lan'
+
+# connect to laptop
+alias cla='ssh laptop-mads.router.lan'
 
 # dotfiles bare git repo shortcut
 alias dotgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
