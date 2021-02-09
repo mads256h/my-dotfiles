@@ -1,0 +1,161 @@
+{
+    "createdBy": "Redirector v3.5.3",
+    "createdAt": "2021-02-09T16:44:22.676Z",
+    "redirects": [
+        {
+            "description": "Reddit to teddit",
+            "exampleUrl": "https://reddit.com/r/privacy",
+            "exampleResult": "https://teddit.net/r/privacy",
+            "error": null,
+            "includePattern": "^https?://(.*)reddit.com(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://teddit.net$2",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Twitter to Nitter",
+            "exampleUrl": "https://twitter.com",
+            "exampleResult": "https://nitter.net",
+            "error": null,
+            "includePattern": "^(http|https)://twitter.com(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://nitter.net$2",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame",
+                "sub_frame"
+            ]
+        },
+        {
+            "description": "",
+            "exampleUrl": "https://duckduckgo.com",
+            "exampleResult": "https://html.duckduckgo.com/html",
+            "error": null,
+            "includePattern": "^(http|https)://duckduckgo.com(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://html.duckduckgo.com/html$2",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "AMP redirect",
+            "exampleUrl": "https://www.google.com/amp/www.example.com/amp/document",
+            "exampleResult": "https://www.example.com/amp/document",
+            "error": null,
+            "includePattern": "^(?:https?://)www.(?:google|bing).com/amp/(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://$1",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "doubleclick escaper",
+            "exampleUrl": "https://ad.doubleclick.net/ddm/trackclk/N135005.2681608PRIVATENETWORK/B20244?https://www.example.com",
+            "exampleResult": "https://www.example.com",
+            "error": null,
+            "includePattern": "^(?:https?://)ad.doubleclick.net/.*\\?(http?s://.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "$1",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "",
+            "exampleUrl": "https://imgur.com/qA6Wn21",
+            "exampleResult": "https://i.imgur.com/qA6Wn21.jpg",
+            "error": null,
+            "includePattern": "^https?://imgur.com(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://i.imgur.com$1.jpg",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame",
+                "image"
+            ]
+        },
+        {
+            "description": "Instagram to bibliogram",
+            "exampleUrl": "https://instagram.com/jetsonn",
+            "exampleResult": "https://bibliogram.pussthecat.org/u/jetsonn",
+            "error": null,
+            "includePattern": "https?://(.*)instagram.com(.*)",
+            "excludePattern": "https?://(?:www.)instagram.com/p/(.*)",
+            "patternDesc": "",
+            "redirectUrl": "https://bibliogram.pussthecat.org/u$2",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Instagram to bibliogram",
+            "exampleUrl": "https://www.instagram.com/p/CH-jrRAA1SM/",
+            "exampleResult": "https://bibliogram.pussthecat.org/p/CH-jrRAA1SM/",
+            "error": null,
+            "includePattern": "https?://(?:www.)instagram.com/p/(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://bibliogram.pussthecat.org/p/$1",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Youtube redirect bypass",
+            "exampleUrl": "https://www.youtube.com/redirect?v=kNE6eU90w7w&event=video_description&redir_token=QUFFLUhqbkVWY0l5Z1Rib0NRV3FLb2NnRVlGVTBLaEtkQXxBQ3Jtc0ttVXlMMmRKdFkwSmZJX2V4MlYyT2YxRjVnTHFxMVFOY0dhbFM3a1d0UEZmUjg4SUVUMjduaTZmMkhDSEdYUWJKa2h5SXRXX2d5VnBXWWxlLXo1UzczZ2dRT2VnbzkxNXRTdG9RMjlXYWlnSG04VjNGYw%3D%3D&q=https%3A%2F%2Ftwitter.com%2Fusername",
+            "exampleResult": "https://twitter.com/username",
+            "error": null,
+            "includePattern": "https://www.youtube.com/redirect\\?(.*)\\&q=(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "$2",
+            "patternType": "R",
+            "processMatches": "urlDecode",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        }
+    ]
+}
