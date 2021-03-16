@@ -1,0 +1,3 @@
+#!/bin/bash
+
+upload "$1" | tee >(xclip -selection clipboard)

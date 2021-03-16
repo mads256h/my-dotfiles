@@ -1,0 +1,41 @@
+#!/bin/sh
+
+error()
+{
+  echo "$@" >&2
+  exit 1
+}
+
+remote()
+{
+  ssh server-mads.lan "$@"
+}
+
+REMOTEPATH="/mnt/data/file.madsmogensen.dk/"
+REMOTEWWWPATH="$REMOTEPATH/www/"
+
+
+if [ "$#" -ne 1 ]; then
+  error "USAGE: $(basename $0) <file>"
+fi
+
+file="$@"
+
+sum=$(sha512sum "$file" | awk '{ print $1 }')
+
+
+output="$(remote "$REMOTEPATH/fileexists.sh $sum")"
+
+if echo "$output" | grep "file does not exist" > /dev/null; then
+  randomname=$(echo "$sum" | cut -b -10)
+  dirpath="$REMOTEWWWPATH/$randomname"
+  filepath="$dirpath/$file"
+  echo "$filepath"
+  remote "mkdir $dirpath"
+  rsync --ignore-existing "$file" "server-mads.lan:\"$filepath\""
+  remote "sha512sum \"$filepath\" >> \"$REMOTEPATH/filehashes\""
+  output="$filepath"
+fi
+
+echo $(remote "$REMOTEPATH/pathtourl.sh \"$output\"")
+

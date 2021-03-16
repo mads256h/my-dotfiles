@@ -49,6 +49,9 @@ alias sp='sshfs -o idmap=user -C mads@home.madsmogensen.dk:/mnt/share ~/mnt/'
 # unmount sshfs
 alias us='fusermount3 -u ~/mnt'
 
+# upload file
+alias u='uploadcb'
+
 # youtube-dl highest quality video
 alias yt='youtube-dl -f bestvideo+bestaudio --add-metadata --embed-subs --all-subs'
 

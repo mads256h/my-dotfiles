@@ -44,3 +44,7 @@ source "$XDG_CONFIG_HOME/bash/custom.sh"
 
 alias ls='ls --color=auto'
 export PS1="\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\u\[$(tput sgr0)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 3)\]\W\[$(tput setaf 1)\]]\[$(tput sgr0)\]\\$ \[$(tput sgr0)\]"
+
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi

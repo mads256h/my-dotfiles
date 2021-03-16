@@ -11,3 +11,9 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Hostname
 export HOSTNAME=$(hostname)
+
+# Stop dotnet telemetry
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# dotnet root
+export DOTNET_ROOT="/opt/dotnet"
