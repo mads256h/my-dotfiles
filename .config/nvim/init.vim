@@ -51,7 +51,7 @@ set number
 set relativenumber
 
 let g:tex_flavor = 'latex'
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-json', 'coc-html', 'coc-sh', 'coc-vimtex', 'coc-clangd', 'coc-phpactor' ]
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-json', 'coc-html', 'coc-sh', 'coc-vimtex', 'coc-clangd', 'coc-phpactor', 'coc-tsserver' ]
 let g:clang_format#detect_style_file=1
 
 
@@ -258,3 +258,4 @@ nmap <space>lfn o\begin{figure}[H]<CR>\centering<CR><++><CR>\caption{<++>}<CR>\l
 " Listings
 nmap <space>llc o\begin{listing}[H]<CR>\begin{minted}[breaklines, linenos]{<++>}<CR><++><CR>\end{minted}<CR>\caption{<++>}<CR>\label{lst:<++>}<CR>\end{listing}<CR><ESC>6k0Vj:s/^  //<CR>:noh<CR>k
 nmap <space>lli o\begin{listing}[H]<CR>\inputminted[breaklines, linenos, firstline=<++>, lastline=<++>]{<++>}{<++>}<CR>\caption{<++>}<CR>\label{lst:<++>}<CR>\end{listing}<CR><ESC>4k0
+
