@@ -10,4 +10,5 @@ wp &
 mail-up &
 dunst &
 picom &
+[ "$HOSTNAME" -eq "DESKTOP-MADS" ] && s &
 i3
