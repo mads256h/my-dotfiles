@@ -232,10 +232,10 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Gif
-fileviewer *.gif
-        \ vifmimg gifpreview %px %py %pw %ph %c
-        \ %pc
-        \ vifmimg clear
+"fileviewer *.gif
+"        \ vifmimg gifpreview %px %py %pw %ph %c
+"        \ %pc
+"        \ vifmimg clear
 
 
 " Images
