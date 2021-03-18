@@ -9,6 +9,6 @@ transmission-daemon -f &
 wp &
 mail-up &
 dunst &
-picom &
+picom -b
 [ "$HOSTNAME" -eq "DESKTOP-MADS" ] && s &
 i3

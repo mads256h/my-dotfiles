@@ -1,3 +1,3 @@
 #!/bin/sh
 
-killall picom; steam-native; (picom &)
+killall picom; steam-native; picom -b
