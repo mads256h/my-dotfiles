@@ -1,6 +1,6 @@
 {
     "createdBy": "Redirector v3.5.3",
-    "createdAt": "2021-02-09T16:44:22.676Z",
+    "createdAt": "2021-04-04T14:25:36.500Z",
     "redirects": [
         {
             "description": "Reddit to teddit",
@@ -22,12 +22,12 @@
         {
             "description": "Twitter to Nitter",
             "exampleUrl": "https://twitter.com",
-            "exampleResult": "https://nitter.net",
+            "exampleResult": "https://nitter.namazso.eu",
             "error": null,
             "includePattern": "^(http|https)://twitter.com(.*)",
             "excludePattern": "",
             "patternDesc": "",
-            "redirectUrl": "https://nitter.net$2",
+            "redirectUrl": "https://nitter.namazso.eu$2",
             "patternType": "R",
             "processMatches": "noProcessing",
             "disabled": false,
