@@ -11,31 +11,32 @@ remote()
   ssh server-mads.lan "$@"
 }
 
-REMOTEPATH="/mnt/data/file.madsmogensen.dk/"
-REMOTEWWWPATH="$REMOTEPATH/www/"
+SCRIPT_DIR="/root/file.madsmogensen.dk/"
+BASE_DIR="/mnt/data/file.madsmogensen.dk/"
+WWW_DIR="$BASE_DIR/www/"
 
 
 if [ "$#" -ne 1 ]; then
-  error "USAGE: $(basename $0) <file>"
+  error "USAGE: $(basename "$0") <file>"
 fi
 
-file="$@"
+file="$1"
+file_base_name=$(basename "$file")
 
 sum=$(sha512sum "$file" | awk '{ print $1 }')
 
 
-output="$(remote "$REMOTEPATH/fileexists.sh $sum")"
+output="$(remote "$SCRIPT_DIR/fileexists.sh $sum")"
 
 if echo "$output" | grep "file does not exist" > /dev/null; then
   randomname=$(echo "$sum" | cut -b -10)
-  dirpath="$REMOTEWWWPATH/$randomname"
-  filepath="$dirpath/$file"
-  echo "$filepath"
+  dirpath="$WWW_DIR/$randomname"
+  filepath="$dirpath/$file_base_name"
   remote "mkdir $dirpath"
   rsync --ignore-existing "$file" "server-mads.lan:\"$filepath\""
-  remote "sha512sum \"$filepath\" >> \"$REMOTEPATH/filehashes\""
+  remote "sha512sum \"$filepath\" >> \"$BASE_DIR/filehashes\""
   output="$filepath"
 fi
 
-echo $(remote "$REMOTEPATH/pathtourl.sh \"$output\"")
+echo $(remote "$SCRIPT_DIR/pathtourl.sh \"$output\"")
 
