@@ -112,6 +112,9 @@ endif
 
 set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
+" Fast userinterface with vifmimg
+set previewoptions+=graphicsdelay:0
+
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]
@@ -175,7 +178,7 @@ filextype {*.pdf},<application/pdf>
         \ {View in zathura}
         \ zathura %c %i
 fileviewer {*.pdf},<application/pdf>
-        \ vifmimg pdfpreview %px %py %pw %ph %c
+        \ timeout 1 vifmimg pdf %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
 
@@ -197,7 +200,7 @@ filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus},
 " fileviewer {*.mp3},<audio/mpeg> mp3info
 " fileviewer {*.flac},<audio/flac> soxi
 fileviewer {*.wav,*.mp3},<audio/*>
-        \ vifmimg audiopreview %px %py %pw %ph %c
+        \ timeout 1 vifmimg audio %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
 
@@ -213,9 +216,12 @@ fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
            \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
            \*.as[fx]},
           \<video/*>
-        \ vifmimg videopreview %px %py %pw %ph %c 
-        \ %pc 
+          \ timeout 1 vifmimg video %px %py %pw %ph %c
+        \ %pc
         \ vifmimg clear
+        "\ timeout 1 vifmimg video %px %py %pw %ph %c 
+        "\ %pc 
+        "\ vifmimg clear
          "\ ffprobe -pretty %c 2>&1
 
 " Web
@@ -233,7 +239,7 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Gif
 "fileviewer *.gif
-"        \ vifmimg gifpreview %px %py %pw %ph %c
+"        \ timeout 1 vifmimg gifpreview %px %py %pw %ph %c
 "        \ %pc
 "        \ vifmimg clear
 
@@ -242,14 +248,14 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
         \ {View in feh}
         \ feh %f,
-fileviewer *.bmp,*.jpg,*.jpeg,*.gif,*.png,*.xpm
-         \ vifmimg draw %px %py %pw %ph %c
+fileviewer {*.bmp,*.jpg,*.jpeg,*.gif,*.png,*.xpm},<image/*>
+         \ timeout 1 vifmimg draw %px %py %pw %ph %c
          \ %pc
          \ vifmimg clear
 
 " Icons
 fileviewer *.ico
-        \ vifmimg magickpreview %px %py %pw %ph %c
+        \ timeout 1 vifmimg magickpreview %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
 
