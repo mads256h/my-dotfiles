@@ -17,7 +17,7 @@
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR='nvim'
 export TERMINAL='st'
-export BROWSER='chromium'
+export BROWSER='librewolf'
 
 
 # Configure directories
@@ -35,9 +35,6 @@ source "$XDG_CONFIG_HOME/bash/alias.sh"
 # xrdb environment variables
 #eval $(xrdb-env)
 
-# Custom stuff
-source "$XDG_CONFIG_HOME/bash/custom.sh"
-
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -45,6 +42,7 @@ source "$XDG_CONFIG_HOME/bash/custom.sh"
 alias ls='ls --color=auto'
 export PS1="\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\u\[$(tput sgr0)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 3)\]\W\[$(tput setaf 1)\]]\[$(tput sgr0)\]\\$ \[$(tput sgr0)\]"
 
+# Start X automagically on tty1
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi

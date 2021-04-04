@@ -61,18 +61,13 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec st -e tmux
+bindsym $mod+Shift+Return exec st
 
 # start vifm
 bindsym $mod+g exec st -e vifmrun
 
-# start browser with the Other profile
-bindsym $mod+w exec $BROWSER --profile-directory="$BROWSER_PROFILE_OTHER"
-
-# start browser with the Google profile
-bindsym $mod+Shift+w exec $BROWSER --profile-directory="$BROWSER_PROFILE_GOOGLE"
-
-# start browser with the aau profile
-bindsym $mod+Mod1+w exec $BROWSER --profile-directory="$BROWSER_PROFILE_AAU"
+# start browser
+bindsym $mod+w exec $BROWSER
 
 # start neomutt
 bindsym $mod+m exec st -e neomutt
