@@ -56,3 +56,7 @@ export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 
 # xorg-xauth
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+
+
+# octave
+export OCTAVE_HISTFILE="$XDG_CACHE_HOME"/octave_hist
