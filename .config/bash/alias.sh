@@ -37,6 +37,9 @@ alias cde='ssh desktop-mads.router.lan'
 # connect to laptop
 alias cla='ssh laptop-mads.router.lan'
 
+# connect to kali vm
+alias ck='ssh -X -p 26666 mads@127.0.0.1'
+
 # dotfiles bare git repo shortcut
 alias dotgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
