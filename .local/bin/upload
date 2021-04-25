@@ -38,5 +38,5 @@ if echo "$output" | grep "file does not exist" > /dev/null; then
   output="$filepath"
 fi
 
-echo $(remote "$SCRIPT_DIR/pathtourl.sh \"$output\"")
+remote "$SCRIPT_DIR/pathtourl.sh \"$output\""
 
