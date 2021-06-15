@@ -64,6 +64,9 @@ alias u='uploadcb'
 # youtube-dl highest quality video
 alias yt='youtube-dl -f bestvideo+bestaudio --add-metadata --embed-subs --all-subs'
 
+# youtube-dl archive mode
+alias yta='yt --download-archive .archive'
+
 # youtube-dl highest quality mp3
 alias ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata'
 
