@@ -51,7 +51,7 @@ set number
 set relativenumber
 
 let g:tex_flavor = 'latex'
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-json', 'coc-html', 'coc-sh', 'coc-vimtex', 'coc-clangd', 'coc-phpactor', 'coc-tsserver' ]
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-json', 'coc-html', 'coc-sh', 'coc-vimtex', 'coc-clangd', 'coc-phpactor', 'coc-tsserver', 'coc-rls' ]
 let g:clang_format#detect_style_file=1
 
 
