@@ -115,6 +115,9 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 " Fast userinterface with vifmimg
 set previewoptions+=graphicsdelay:0
 
+" Columns
+set viewcolumns=-{name},14{perms},15{mtime},9{size}
+
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]
@@ -193,13 +196,13 @@ filextype {*.djvu},<image/vnd.djvu>
         \ zathura %f,
 
 " Audio
-filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus},
+filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.aif},
         \<audio/*>
        \ {Play using mpv}
        \ mpv %f
 " fileviewer {*.mp3},<audio/mpeg> mp3info
 " fileviewer {*.flac},<audio/flac> soxi
-fileviewer {*.wav,*.mp3},<audio/*>
+fileviewer {*.wav,*.mp3,*.aif},<audio/*>
         \ timeout 1 vifmimg audio %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
