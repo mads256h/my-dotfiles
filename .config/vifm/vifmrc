@@ -118,6 +118,14 @@ set previewoptions+=graphicsdelay:0
 " Columns
 set viewcolumns=-{name},14{perms},15{mtime},9{size}
 
+" Slowfs
+set slowfs+=/home/mads/mnt
+
+" Drag and drop
+command! dragon dragon-drag-and-drop -a -x %f
+nmap <C-d> :dragon<CR>
+
+
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]
