@@ -80,6 +80,31 @@
 
 
 \begin{document}
+\begin{sagesilent}
+  latex.matrix_delimiters("[", "]")
+  latex.vector_delimiters("[", "]")
+
+  # Print vectors as column vectors
+  latex_old = sage.misc.latex.Latex.__call__
+
+  def column_vector_latex_wrapper(self, x, combine_all=False):
+    if sage.structure.element.is_Vector(x):
+      LatexExpr = sage.misc.latex.LatexExpr
+      vector_delimiters = self.vector_delimiters()
+      s = '\\left' + vector_delimiters[0]
+      s += '\\begin{array}{' + ('r' * len(x.list())) + '}\n'
+      s += '\\\\\n'.join([latex(a) for a in x.list()]) + '\n'
+      s += '\\end{array}'
+      return LatexExpr(s + '\\right' + vector_delimiters[1])
+    else:
+      return latex_old(latex, x, combine_all)
+
+  def row_vector(v, combine_all=False):
+    assert sage.structure.element.is_Vector(v)
+    return latex_old(latex, v, combine_all)
+
+  sage.misc.latex.Latex.__call__ = column_vector_latex_wrapper
+\end{sagesilent}
 
 \maketitle
 
