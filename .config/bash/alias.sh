@@ -26,10 +26,7 @@ alias ci3='nvim $HOME/.config/i3/config'
 alias cx='nvim $HOME/.xinitrc'
 
 # connect to server on home network
-alias cs='ssh server-mads.lan'
-
-# connect to server on other network
-alias csp='ssh home.madsmogensen.dk'
+alias cs='ssh server-mads.lan || ssh 192.168.1.150 || ssh home.madsmogensen.dk'
 
 # connect to desktop
 alias cde='ssh desktop-mads.router.lan'
@@ -50,10 +47,7 @@ alias fm='vifmrun'
 alias gsp='git config user.signingKey 75C8BC5DCCE7257DA133C6CECCD33BA72D54F208'
 
 # connect to sshfs when on home network
-alias s='sshfs -o idmap=user -C mads@server-mads.lan:/mnt/share ~/mnt/'
-
-# connect to sshfs on other network
-alias sp='sshfs -o idmap=user -C mads@home.madsmogensen.dk:/mnt/share ~/mnt/'
+alias s='sshfs -o idmap=user -C mads@server-mads.lan:/mnt/share ~/mnt/ || sshfs -o idmap=user -C mads@home.madsmogensen.dk:/mnt/share ~/mnt/'
 
 # unmount sshfs
 alias us='fusermount3 -u ~/mnt'
