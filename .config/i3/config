@@ -249,3 +249,5 @@ assign [class="KeePassXC"] $ws10
 exec --no-startup-id spotify
 exec --no-startup-id discord
 exec --no-startup-id thunderbird
+
+exec --no-startup-id kdeconnect-indicator
