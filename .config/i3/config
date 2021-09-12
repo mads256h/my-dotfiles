@@ -237,3 +237,15 @@ bar {
   tray_output primary
   status_command SCRIPT_DIR=/home/mads/.config/i3blocks i3blocks
 }
+
+# Spotify is buggy as its class is not set at startup
+# Workaround: Always move it to worspace 2
+assign [class="Spotify"] $ws2
+for_window [class="Spotify"] move to workspace $ws2
+assign [class="discord"] $ws4
+assign [class="Thunderbird"] $ws9
+assign [class="KeePassXC"] $ws10
+
+exec --no-startup-id spotify
+exec --no-startup-id discord
+exec --no-startup-id thunderbird
