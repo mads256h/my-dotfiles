@@ -7,8 +7,7 @@ eval $(xrdb-env)
 /usr/lib/kdeconnectd &
 transmission-daemon -f &
 wp &
-mail-up &
 dunst &
 picom -b
-[ "$HOSTNAME" = "DESKTOP-MADS" ] && s &
+s &
 i3
