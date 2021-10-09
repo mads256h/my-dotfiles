@@ -24,6 +24,10 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 # GTK 2.0
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
 
+# ipython / jupyter
+export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+
 
 # maxima
 export MAXIMA_USERDIR="$XDG_CONFIG_HOME"/maxima
@@ -44,6 +48,9 @@ export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 
 # Rust cargo
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+
+# Rustup
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 
 
 # sagemath
