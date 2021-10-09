@@ -4,6 +4,9 @@
 export ANDROID_PREFS_ROOT="$XDG_CONFIG_HOME"/android
 export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME"/android/emulator
 
+# bash
+export HISTFILE="$XDG_STATE_HOME"/bash/history
+
 # ccache
 export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME"/ccache.conf
 export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
