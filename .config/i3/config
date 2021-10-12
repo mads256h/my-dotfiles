@@ -75,6 +75,9 @@ bindsym $mod+m exec st -e neomutt
 # start spotify
 bindsym $mod+s exec spotify
 
+# take a screenshot
+bindsym $mod+t exec maim -s ~/Pictures/$(date +%s).png
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
