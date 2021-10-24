@@ -13,6 +13,7 @@ local use = require('packer').use;
 
 require('packer').startup(function()
   use 'tpope/vim-fugitive' -- Git commands in nvim
+  use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   -- Add git related info in the signs columns and popups
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
