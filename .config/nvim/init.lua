@@ -12,6 +12,7 @@
 local use = require('packer').use;
 
 require('packer').startup(function()
+  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
