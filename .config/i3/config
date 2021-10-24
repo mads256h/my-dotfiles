@@ -78,6 +78,18 @@ bindsym $mod+s exec spotify
 # take a screenshot
 bindsym $mod+t exec maim -s ~/Pictures/$(date +%s).png
 
+# Close notification
+bindsym $mod+Ctrl+space exec --no-startup-id dunstctl close
+
+# Close all notifications
+bindsym $mod+Ctrl+Shift+space exec --no-startup-id dunstctl close-all
+
+# Notification history
+bindsym $mod+Ctrl+Shift+h exec --no-startup-id dunstctl history-pop
+
+# Notification context menu
+bindsym $mod+Ctrl+Shift+. exec --no-startup-id dunstctl close-all
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
