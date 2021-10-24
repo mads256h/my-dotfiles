@@ -17,7 +17,7 @@ alias cbd='nvim $XDG_CONFIG_HOME/bash/dirs.sh'
 alias cbp='nvim $HOME/.bash_profile'
 
 # neovim configuration shortcut
-alias cv='nvim $HOME/.config/nvim/*.vim'
+alias cv='nvim $HOME/.config/nvim/init.lua'
 
 # i3 configuration shortcut
 alias ci3='nvim $HOME/.config/i3/config'

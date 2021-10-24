@@ -14,7 +14,7 @@
 #
 
 # Add my scripts to the path
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:/home/mads/.local/share/npm/bin:$PATH"
 export EDITOR='nvim'
 export TERMINAL='st'
 export BROWSER='librewolf'
