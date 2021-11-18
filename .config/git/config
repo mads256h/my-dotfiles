@@ -10,8 +10,10 @@
 [commit]
 	gpgsign = true
 [pull]
-	rebase = false
+	rebase = true
 [alias]
 	exec = "!exec "
 [init]
 	defaultBranch = master
+[merge]
+	tool = vimdiff
