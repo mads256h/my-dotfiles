@@ -1,6 +1,6 @@
 {
     "createdBy": "Redirector v3.5.3",
-    "createdAt": "2021-04-04T14:25:36.500Z",
+    "createdAt": "2021-12-29T01:29:35.000Z",
     "redirects": [
         {
             "description": "Reddit to teddit",
@@ -35,23 +35,6 @@
             "appliesTo": [
                 "main_frame",
                 "sub_frame"
-            ]
-        },
-        {
-            "description": "",
-            "exampleUrl": "https://duckduckgo.com",
-            "exampleResult": "https://html.duckduckgo.com/html",
-            "error": null,
-            "includePattern": "^(http|https)://duckduckgo.com(.*)",
-            "excludePattern": "",
-            "patternDesc": "",
-            "redirectUrl": "https://html.duckduckgo.com/html$2",
-            "patternType": "R",
-            "processMatches": "noProcessing",
-            "disabled": false,
-            "grouped": false,
-            "appliesTo": [
-                "main_frame"
             ]
         },
         {
@@ -142,10 +125,10 @@
         },
         {
             "description": "Youtube redirect bypass",
-            "exampleUrl": "https://www.youtube.com/redirect?v=kNE6eU90w7w&event=video_description&redir_token=QUFFLUhqbkVWY0l5Z1Rib0NRV3FLb2NnRVlGVTBLaEtkQXxBQ3Jtc0ttVXlMMmRKdFkwSmZJX2V4MlYyT2YxRjVnTHFxMVFOY0dhbFM3a1d0UEZmUjg4SUVUMjduaTZmMkhDSEdYUWJKa2h5SXRXX2d5VnBXWWxlLXo1UzczZ2dRT2VnbzkxNXRTdG9RMjlXYWlnSG04VjNGYw%3D%3D&q=https%3A%2F%2Ftwitter.com%2Fusername",
-            "exampleResult": "https://twitter.com/username",
+            "exampleUrl": "https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbEprN1pSSXdBaFJCWEF5Z2hlZTBxTi1NVEdhQXxBQ3Jtc0tsUTBNVy15MldYSHVlaDhVc244MHJCVW5kNFIzZjVjQUlxMUEtTkhqS24xZTJmOGFkM3dkOGp0ZGFTNGEwRzBfYlduSVBkcUtjaXFMWDlrT2RlSTlfZlQ4cFBFRDBrWmxjNzJySXJsOGdzNjRQWi01bw&q=https%3A%2F%2Fen.m.wikipedia.org%2Fwiki%2FFile%3ATrollface_non-free.png&stzid=UgwOj0KJ5NQwTD2Cr514AaABAg.9Vfs99ZN9Wd9W8dyo45llc",
+            "exampleResult": "https://en.m.wikipedia.org/wiki/File:Trollface_non-free.png",
             "error": null,
-            "includePattern": "https://www.youtube.com/redirect\\?(.*)\\&q=(.*)",
+            "includePattern": "https://www.youtube.com/redirect\\?(.*)\\&q=(.*)\\&stzid.*",
             "excludePattern": "",
             "patternDesc": "",
             "redirectUrl": "$2",
