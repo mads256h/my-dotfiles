@@ -55,14 +55,14 @@ alias us='fusermount3 -u ~/mnt'
 # upload file
 alias u='uploadcb'
 
-# youtube-dl highest quality video
-alias yt='youtube-dl -f bestvideo+bestaudio --add-metadata --embed-subs --all-subs'
+# yt-dlp highest quality video
+alias yt='yt-dlp -f bestvideo+bestaudio --add-metadata --embed-subs --all-subs'
 
-# youtube-dl archive mode
+# yt-dlp archive mode
 alias yta='yt --download-archive .archive'
 
-# youtube-dl highest quality mp3
-alias ytmp3='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata'
+# yt-dlp highest quality mp3
+alias ytmp3='yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata'
 
 # get weather from Aalborg
 alias we='curl https://wttr.in/Aalborg'
