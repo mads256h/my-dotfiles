@@ -69,9 +69,6 @@ bindsym $mod+g exec st -e vifmrun
 # start browser
 bindsym $mod+w exec $BROWSER
 
-# start neomutt
-bindsym $mod+m exec st -e neomutt
-
 # start spotify
 bindsym $mod+s exec spotify
 
