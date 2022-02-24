@@ -47,7 +47,7 @@ alias fm='vifmrun'
 alias gsp='git config user.signingKey 75C8BC5DCCE7257DA133C6CECCD33BA72D54F208'
 
 # connect to sshfs when on home network
-alias s='sshfs -o idmap=user -C mads@server-mads.lan:/mnt/share ~/mnt/ || sshfs -o idmap=user -C mads@home.madsmogensen.dk:/mnt/share ~/mnt/'
+alias s='sshfs -o idmap=user,reconnect -C mads@server-mads.lan:/mnt/share ~/mnt/ || sshfs -o idmap=user,reconnect -C mads@home.madsmogensen.dk:/mnt/share ~/mnt/'
 
 # unmount sshfs
 alias us='fusermount3 -u ~/mnt'
