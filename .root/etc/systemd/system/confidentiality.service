@@ -1,0 +1,15 @@
+# Enable confidentiality mode in the lockdown lsm
+# to prevent changes to the kernel.
+# This is done after module loading has occured.
+
+[Unit]
+Description=Enable confidentiality mode
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c "echo \"confidentiality\" > /sys/kernel/security/lockdown"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical.target
