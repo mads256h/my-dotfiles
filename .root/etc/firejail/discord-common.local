@@ -1,1 +1,4 @@
-whitelist ${HOME}
+whitelist ${DOCUMENTS}
+whitelist ${MUSIC}
+whitelist ${PICTURES}
+whitelist ${VIDEOS}
