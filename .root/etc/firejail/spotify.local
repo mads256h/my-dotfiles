@@ -1,0 +1,2 @@
+noblacklist ${HOME}/Music
+whitelist ${HOME}/Music
