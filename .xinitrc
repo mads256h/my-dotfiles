@@ -10,4 +10,5 @@ wp &
 dunst &
 picom -b
 s &
+xhost +si:localuser:$USER
 i3
