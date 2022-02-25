@@ -1,0 +1,3 @@
+whitelist ${RUNUSER}/kpxc_server
+whitelist ${RUNUSER}/org.keepassxc.KeePassXC.BrowserServer
+dbus-user.talk org.freedesktop.ScreenSaver
