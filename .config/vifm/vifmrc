@@ -187,7 +187,7 @@ command! reload :write | restart full
 " Pdf
 filextype {*.pdf},<application/pdf>
         \ {View in zathura}
-        \ zathura %c %i
+        \ zathura %c %i 2>/dev/null
 fileviewer {*.pdf},<application/pdf>
         \ vifmimg pdf %px %py %pw %ph %c
         \ %pc
@@ -196,12 +196,12 @@ fileviewer {*.pdf},<application/pdf>
 " PostScript
 filextype {*.ps,*.eps,*.ps.gz},<application/postscript>
         \ {View in zathura}
-        \ zathura %f,
+        \ zathura %f 2>/dev/null,
 
 " Djvu
 filextype {*.djvu},<image/vnd.djvu>
         \ {View in zathura}
-        \ zathura %f,
+        \ zathura %f 2>/dev/null,
 
 " Audio
 filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.aif},
