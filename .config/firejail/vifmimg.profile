@@ -12,6 +12,7 @@ memory-deny-write-execute
 
 apparmor
 caps.drop all
+machine-id
 net none
 no3d
 nogroups
