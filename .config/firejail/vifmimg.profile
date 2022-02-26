@@ -8,6 +8,7 @@ include disable-X11.inc
 include disable-proc.inc
 #include disable-programs.inc
 
+memory-deny-write-execute
 
 apparmor
 caps.drop all
