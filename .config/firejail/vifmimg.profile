@@ -1,4 +1,4 @@
-#quiet
+quiet
 
 include disable-common.inc
 include disable-devel.inc
