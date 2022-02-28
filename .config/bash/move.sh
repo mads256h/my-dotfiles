@@ -65,7 +65,8 @@ export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 
 
 # xorg-xauth
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+mkdir "$XDG_RUNTIME_DIR"/gdm 2>/dev/null
+export XAUTHORITY="$XDG_RUNTIME_DIR"/gdm/Xauthority
 
 
 # octave
