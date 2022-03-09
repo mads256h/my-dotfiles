@@ -6,7 +6,7 @@ xrdb "$XDG_CONFIG_HOME"/X11/Xresources
 eval $(xrdb-env)
 [ "$HOSTNAME" != "laptop-mads" ] && /usr/lib/kdeconnectd &
 transmission-daemon -f &
-wp &
+nice -n 19 wp &
 dunst &
 [ "$HOSTNAME" = "laptop-mads" ] && picom -b
 i3
