@@ -2,7 +2,6 @@
 
 WALLPAPER_DIR="$XDG_DATA_HOME/wallpapers"
 
-while true; do
-  find "$WALLPAPER_DIR" | shuf | tail -1 | xargs feh --no-fehbg --bg-scale
-  sleep 5m
-done
+WALLPAPER="$(find "$WALLPAPER_DIR" | shuf | tail -1)"
+feh --no-fehbg --bg-scale "$WALLPAPER"
+convert "$WALLPAPER" -modulate 30% -gaussian-blur 0x8 - | jpg2ff > "$XDG_DATA_HOME/wallpaper.ff"
