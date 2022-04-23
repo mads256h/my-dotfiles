@@ -14,7 +14,7 @@ syn keyword flowgBoolean true false
 syn keyword flowgFunction move line sqrt sin cos tan arcsin arccos arctan
 
 syn keyword flowgKeyword for to if else return
-syn match flowgOperator "+\|-\|\*\|/\|\^\|=\|+=\|-=\|\*=\|/=|^="
+syn match flowgOperator "+\|-\|\*\|/\|\^\|=\|+=\|-=\|\*=\|/=\|^="
 
 syn keyword flowgType void number bool point
 
