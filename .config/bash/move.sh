@@ -71,3 +71,12 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/gdm/Xauthority
 
 # octave
 export OCTAVE_HISTFILE="$XDG_CACHE_HOME"/octave_hist
+
+# devkitpro
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=/opt/devkitpro/devkitARM
+export DEVKITPPC=/opt/devkitpro/devkitPPC
+
+export PATH=/opt/devkitpro/devkitPPC/bin:$PATH
+
+export BSLUGDIR=/home/mads/dev/bslug
