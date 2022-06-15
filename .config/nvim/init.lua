@@ -251,3 +251,10 @@ vim.g.airline_powerline_fonts = 1
 vim.api.nvim_set_keymap("n", "<c-c>", '"+yy', {noremap=true, silent=true})
 vim.api.nvim_set_keymap("v", "<c-c>", '"+y', {noremap=true, silent=true})
 vim.api.nvim_set_keymap("n", "<c-v>", '"+p', {noremap=true, silent=true})
+
+
+-- Go to next <++> delete it and go into insert mode
+vim.api.nvim_set_keymap("n", "<space>n", '/<++><CR>ca<', {})
+
+-- Go to next <++?> and prompt to replace them all with input
+vim.api.nvim_set_keymap("n", "<space>b", '/<++.><CR>va<y/<C-r>"<CR>:%s/<C-r>"//g<left><left>', {})
