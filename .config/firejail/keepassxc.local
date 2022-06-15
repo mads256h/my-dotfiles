@@ -1,1 +1,5 @@
 apparmor
+
+noblacklist ${HOME}/Private
+noblacklist ${HOME}/Private/Passwords.kdbx
+
