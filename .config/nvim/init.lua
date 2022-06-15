@@ -37,7 +37,7 @@ end)
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true, -- false will disable the whole extension
   },
@@ -247,4 +247,7 @@ vim.o.tabstop = 2
 -- Use powerline fonts
 vim.g.airline_powerline_fonts = 1
 
-
+-- Copy paste
+vim.api.nvim_set_keymap("n", "<c-c>", '"+yy', {noremap=true, silent=true})
+vim.api.nvim_set_keymap("v", "<c-c>", '"+y', {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<c-v>", '"+p', {noremap=true, silent=true})
