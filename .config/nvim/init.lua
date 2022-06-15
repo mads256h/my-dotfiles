@@ -32,6 +32,8 @@ require('packer').startup(function()
   }
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  -- Context for stuff
+  use 'nvim-treesitter/nvim-treesitter-context'
 end)
 
 -- Treesitter configuration
