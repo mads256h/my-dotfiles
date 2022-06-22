@@ -14,11 +14,11 @@ syn keyword flowgBoolean true false
 syn keyword flowgFunction move line sqrt sin cos tan arcsin arccos arctan
 
 syn keyword flowgKeyword for to if else return gcode
-syn match flowgKeyword "#include"
+syn match flowgKeyword nextgroup=flowgSystemIncludeBlock,flowgUserIncludeBlock skipwhite "#include"
 syn match flowgOperator "+\|-\|\*\|/\|\^\|=\|+=\|-=\|\*=\|/=\|\^="
 
-syn region flowgUserIncludeBlock start="\"" end="\"" transparent contains=flowgString
-syn region flowgSystemIncludeBlock start="<" end=">" transparent contains=flowgString
+syn region flowgUserIncludeBlock start="\"" end="\"" contains=flowgString contained
+syn region flowgSystemIncludeBlock start="<" end=">" contains=flowgString contained
 
 syn keyword flowgType void number bool point
 
