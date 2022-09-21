@@ -1,0 +1,15 @@
+# vim:syntax=apparmor
+# AppArmor policy for thunderbird
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+"/usr/bin/thunderbird" {
+  include <abstractions/base>
+
+  /usr/bin/thunderbird r,
+  /usr/lib/thunderbird/thunderbird Px,
+}
+

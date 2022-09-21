@@ -1,0 +1,58 @@
+# vim:syntax=apparmor
+# AppArmor policy for thunderbird
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+"/usr/lib/thunderbird/thunderbird" {
+  include <abstractions/audio>
+  include <abstractions/base>
+  include <abstractions/dconf>
+  include <abstractions/dri-enumerate>
+  include <abstractions/freedesktop.org>
+  include <abstractions/fonts>
+  include <abstractions/gnome>
+  include <abstractions/gtk>
+  include <abstractions/vulkan>
+  include <abstractions/nameservice>
+  include <abstractions/user-tmp>
+  include <abstractions/X>
+
+  /usr/lib/thunderbird/thunderbird ix,
+
+  # Home
+  owner @{HOME}/ r,
+  owner @{HOME}/** r,
+  owner @{HOME}/Downloads/** rw,
+
+  # Config
+  owner @{HOME}/.thunderbird/** rwk,
+  owner @{HOME}/.cache/thunderbird/** rwk,
+
+  # Etc
+  /etc/mime.types r,
+
+  # Proc
+  owner @{PROC}/@{pid}/* r,
+  owner @{PROC}/@{pid}/task/@{pid}/stat r,
+  owner @{PROC}/@{pid}/fd/ r,
+  owner @{PROC}/@{pid}/fd/* r,
+  @{PROC}/sys/dev/i915/perf_stream_paranoid r,
+
+  # sys
+  @{sys}/devices/system/cpu/{present,possible} r,
+  @{sys}/bus/pci/devices/ r,
+  @{sys}/devices/pci[0-9]*/**/{class,revision,config} r,
+  @{sys}/devices/system/cpu/cpufreq/policy[0-9]/cpuinfo_max_freq r,
+  @{sys}/devices/system/cpu/cpu[0-9]*/cache/index[0-9]*/size r,
+
+  # dconf
+  /run/user/@{uid}/dconf/user rw,
+
+  # networking
+  network inet dgram,
+  network inet stream,
+}
+
