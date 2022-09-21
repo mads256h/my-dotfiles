@@ -1,0 +1,54 @@
+# vim:syntax=apparmor
+# AppArmor policy for keepassxc
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+"/usr/bin/keepassxc" {
+  include <abstractions/base>
+  include <abstractions/dri-enumerate>
+  include <abstractions/fonts>
+  include <abstractions/freedesktop.org>
+  include <abstractions/kde-open5>
+  include <abstractions/mesa>
+  include <abstractions/user-tmp>
+  include <abstractions/qt5>
+  include <abstractions/X>
+
+  # Home dir
+  owner @{HOME}/ r,
+  owner @{HOME}/**/*.kdbx rwk,
+  owner @{HOME}/**/*.json.aes rwk,
+
+  # Config
+  owner @{HOME}/.config/KeePassXCrc rw,
+  owner @{HOME}/.config/keepassxc/* rwkl,
+  owner @{HOME}/.cache/keepassxc/** rwkl,
+
+  # Browser integration
+  owner @{HOME}/.mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json rw,
+  owner @{HOME}/.config/chromium/NativeMessagingHosts/org.keepassxc.keepassxc_browser.json rw,
+
+  # Program files
+  /usr/share/keepassxc/** r,
+
+  # Qt stuff
+  owner @{HOME}/.config/qt5ct/qt5ct.conf r,
+  owner @{HOME}/.config/qt5ct/colors/* r,
+  owner @{HOME}/.cache/icon-cache.kcache rw,
+  /usr/share/qt/translations/* r,
+  /usr/share/hwdata/pnp.ids r,
+
+  # tmp
+  owner /run/user/@{uid}/** rwk,
+
+  # sysfs
+  /sys/devices/system/cpu/possible r,
+
+  # Deny some stuff
+  deny /proc/sys/kernel/random/boot_id mrwkl,
+  deny /etc/machine-id mrwkl,
+}
+
