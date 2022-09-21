@@ -1,0 +1,60 @@
+# vim:syntax=apparmor
+# AppArmor policy for mpv
+# ###Mads Mogensen###
+# ###Copyright 2022###
+
+abi <abi/3.0>,
+
+include <tunables/global>
+
+
+"/usr/bin/mpv" {
+  include <abstractions/audio>
+  include <abstractions/base>
+  include <abstractions/consoles>
+  include <abstractions/fonts>
+  include <abstractions/nvidia>
+  include <abstractions/private-files-strict>
+  include <abstractions/X>
+
+  # Allow reading from itself
+  /usr/bin/mpv r,
+
+  # Allow to read from home directory
+  owner @{HOME}/ r,
+  owner @{HOME}/** r,
+
+  # Dissallow accessing hidden files
+  audit deny @{HOME}/**/.* mrwkl,
+
+  # System config
+  /etc/mpv/** r,
+  /etc/libva.conf r,
+  /usr/share/icons/**/index.theme r,
+
+  # Nvidia (should be an abstraction)
+  /dev/nvidia-uvm rw,
+  /usr/bin/nvidia-modprobe Ux,
+
+  @{PROC}/devices r,
+
+  /opt/cuda/targets/x86_64-linux/lib/ r,
+  /opt/cuda/targets/x86_64-linux/lib/* rm,
+  /usr/share/glvnd/egl_vendor.d/ r,
+  /usr/share/glvnd/egl_vendor.d/* r,
+  /usr/share/egl/egl_external_platform.d/ r,
+  /usr/share/egl/egl_external_platform.d/* r,
+
+  # proc and sysfs
+  owner @{PROC}/@{pid}/cmdline r, 
+  owner @{PROC}/@{pid}/task/[0-9]*/comm rw,
+  /proc/sys/vm/mmap_min_addr r,
+
+  /sys/devices/system/cpu/possible r,
+  /sys/devices/system/node/ r,
+  /sys/devices/system/node/node[0-9]*/cpumap r,
+
+  # Disallow reading from machine-id
+  deny /etc/machine-id mrwkl,
+}
+
