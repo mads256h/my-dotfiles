@@ -1,0 +1,65 @@
+# vim:syntax=apparmor
+# AppArmor policy for spotify
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+
+include <tunables/global>
+
+"/opt/spotify/spotify" {
+  include <abstractions/audio>
+  include <abstractions/base>
+  include <abstractions/dbus-session-strict>
+  include <abstractions/dri-enumerate>
+  include <abstractions/freedesktop.org>
+  include <abstractions/fonts>
+  include <abstractions/nameservice>
+  include <abstractions/nvidia>
+  include <abstractions/vulkan>
+  include <abstractions/X>
+
+  /opt/spotify/spotify ix,
+
+  /opt/spotify/** r,
+  /opt/spotify/*.so* mr,
+
+  # music folder
+  owner @{HOME}/Music/ r,
+  owner @{HOME}/Music/** r,
+
+  # config
+  owner @{HOME}/.config/spotify/** mrw,
+  deny @{HOME}/.pki/nssdb/* rw,
+
+  # cache
+  owner @{HOME}/.cache/spotify/** rwk,
+
+  # other stuff
+  owner @{HOME}/.icons/** r,
+
+  # proc
+  @{PROC}/ r,
+  owner @{PROC}/@{pid}/{stat,cmdline,statm} r,
+  owner @{PROC}/@{pid}/oom_score_adj rw,
+  owner @{PROC}/@{pid}/fd/ r,
+  owner @{PROC}/@{pid}/fd/* r,
+  owner @{PROC}/@{pid}/task/ r,
+  owner @{PROC}/@{pid}/task/@{pid}/{stat,status} r,
+  @{PROC}/sys/fs/inotify/max_user_watches r,
+  @{PROC}/sys/kernel/yama/ptrace_scope r,
+
+  # sys
+  @{sys}/devices/system/cpu/possible r,
+  @{sys}/bus/pci/devices/ r,
+  @{sys}/devices/pci[0-9]*/**/{class,config} r,
+  deny /sys/devices/virtual/dmi/id/* r,
+  deny /sys/devices/virtual/tty/tty[0-9]*/active r,
+
+  # etc
+  /etc/libva.conf r,
+
+  # shm
+  owner /dev/shm/.org.chromium.Chromium.* rw,
+  owner /tmp/.org.chromium.Chromium.* rw,
+}
+
