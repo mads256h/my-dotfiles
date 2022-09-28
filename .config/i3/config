@@ -255,7 +255,7 @@ bar {
 assign [class="Spotify"] $ws2
 for_window [class="Spotify"] move to workspace $ws2
 assign [class="discord"] $ws4
-assign [class="Thunderbird"] $ws9
+assign [class="thunderbird"] $ws9
 assign [class="KeePassXC"] $ws10
 
 exec --no-startup-id spotify
