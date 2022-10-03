@@ -9,4 +9,4 @@ transmission-daemon -f &
 wp &
 dunst &
 [ "$HOSTNAME" = "laptop-mads" ] && picom -b
-i3
+exec i3
