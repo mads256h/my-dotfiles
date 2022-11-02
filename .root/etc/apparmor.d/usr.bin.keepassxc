@@ -20,6 +20,7 @@ include <tunables/global>
   # Home dir
   owner @{HOME}/ r,
   owner @{HOME}/**/*.kdbx rwk,
+  owner @{HOME}/**/*.kdbx.* rwk,
   owner @{HOME}/**/*.json.aes rwk,
 
   # Config
@@ -32,12 +33,15 @@ include <tunables/global>
   owner @{HOME}/.config/chromium/NativeMessagingHosts/org.keepassxc.keepassxc_browser.json rw,
 
   # Program files
+  /usr/bin/ r,
+  /usr/bin/keepassxc r,
   /usr/share/keepassxc/** r,
 
   # Qt stuff
   owner @{HOME}/.config/qt5ct/qt5ct.conf r,
   owner @{HOME}/.config/qt5ct/colors/* r,
   owner @{HOME}/.cache/icon-cache.kcache rw,
+  owner @{HOME}/.icons/default/index.theme r,
   /usr/share/qt/translations/* r,
   /usr/share/hwdata/pnp.ids r,
 
@@ -46,9 +50,18 @@ include <tunables/global>
 
   # sysfs
   /sys/devices/system/cpu/possible r,
+  owner /proc/*/oom_score_adj rw,
 
   # Deny some stuff
   deny /proc/sys/kernel/random/boot_id mrwkl,
   deny /etc/machine-id mrwkl,
+  deny /proc/*/comm r,
+  deny /usr/share/nvidia/nvidia-application-profiles-* r,
+
+  # Deny usb stuff
+  deny /dev/ mrwkl,
+  deny /dev/bus/usb/ mrwkl,
+  deny /sys/bus/ mrwkl,
+  deny /sys/class/ mrkwl,
 }
 
