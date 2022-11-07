@@ -24,6 +24,7 @@ include <tunables/global>
   include <abstractions/X>
 
   /usr/lib/thunderbird/thunderbird ix,
+  /usr/lib/gio-launch-desktop pux,
 
   # Home
   owner @{HOME}/ r,
