@@ -10,7 +10,8 @@ REMOTE_DIR="/mnt/share/Mads"
 chmod 600 "$PRIVATE_DIR/Passwords.kdbx" "$PRIVATE_DIR/otp_accounts.json.aes" 2>/dev/null
 
 # Copy Passwords.kdbx and otp_accounts.json.aes files to Private directory
-scp mads@"$URL":"$REMOTE_DIR"/\{Passwords.kdbx,otp_accounts.json.aes\} "$PRIVATE_DIR"/
+scp mads@"$URL":"$REMOTE_DIR"/Passwords.kdbx "$PRIVATE_DIR"/
+scp mads@"$URL":"$REMOTE_DIR"/otp_accounts.json.aes "$PRIVATE_DIR"/
 
 # Make Passwords.kdbx and otp_accounts.json.aes read only
 chmod 400 "$PRIVATE_DIR/Passwords.kdbx" "$PRIVATE_DIR/otp_accounts.json.aes"
