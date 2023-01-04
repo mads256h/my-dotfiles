@@ -1,0 +1,139 @@
+# vim:syntax=apparmor
+# AppArmor policy for discord
+
+
+include <tunables/global>
+
+
+@{USER_DIR} =  @{HOME}/Desktop
+@{USER_DIR} += @{HOME}/Documents
+@{USER_DIR} += @{HOME}/Downloads
+@{USER_DIR} += @{HOME}/Music
+@{USER_DIR} += @{HOME}/Pictures
+@{USER_DIR} += @{HOME}/Videos
+@{USER_DIR} += @{HOME}/GitHub
+
+"/usr/bin/discord" {
+  include <abstractions/base>
+
+  /usr/bin/discord r,
+  /usr/bin/electron* px -> electron_launcher,
+
+  /dev/tty rw,
+  owner /dev/pts/* rw,
+}
+
+profile electron_launcher {
+    include <abstractions/base>
+
+    /usr/bin/bash r,
+    /usr/bin/electron* r,
+    /usr/lib/electron*/electron px -> electron,
+
+    /dev/tty rw,
+    owner /dev/pts/* rw,
+}
+
+profile electron {
+  include <abstractions/audio>
+  include <abstractions/base>
+  include <abstractions/dbus-session-strict>
+  include <abstractions/dconf>
+  include <abstractions/dri-enumerate>
+  include <abstractions/freedesktop.org>
+  include <abstractions/gnome>
+  include <abstractions/ibus>
+  include <abstractions/nameservice>
+  include <abstractions/nvidia>
+  include <abstractions/user-tmp>
+  include <abstractions/video>
+  include <abstractions/X>
+
+  capability sys_admin,
+  capability sys_chroot,
+  deny capability sys_ptrace,
+
+  deny ptrace read peer=**,
+
+  /usr/lib/electron*/electron ix,
+  /usr/lib/electron*/chrome-sandbox px -> sandbox,
+  /usr/lib/electron19/chrome_crashpad_handler px -> crashpad,
+  /usr/bin/xdg-open PUx,
+  deny /usr/bin/lsb_release x,
+  deny /usr/bin/dash x,
+
+  # User files
+  owner @{HOME}/ r,
+  owner @{USER_DIR}/ r,
+  owner @{USER_DIR}/** rw,
+
+  # Config files
+  owner @{HOME}/.config/discord/ r,
+  owner @{HOME}/.config/discord/** rwkm,
+  deny @{HOME}/.pki/** rw,
+
+  # shm
+  owner /dev/shm/.org.chromium.Chromium.* rw,
+
+  # gtk
+  owner @{HOME}/.config/gtk-3.0/colors.css r,
+
+  # dev
+  deny /dev/ r,
+  owner /dev/pts/* rw,
+
+  # proc
+  @{PROC} r,
+  owner @{PROC}/@{pid}/cmdline r,
+  owner @{PROC}/@{pid}/{stat,statm} r,
+  owner @{PROC}/@{pid}/mountinfo r,
+  owner @{PROC}/@{pid}/mounts r,
+  owner @{PROC}/@{pid}/task/ r,
+  owner @{PROC}/@{pid}/task/@{pid}/{stat,status} r,
+  owner @{PROC}/@{pid}/fd/ r,
+  owner @{PROC}/@{pid}/setgroups w,
+  owner @{PROC}/@{pid}/{uid,gid}_map w,
+  owner @{PROC}/@{pid}/oom_score_adj w,
+  @{PROC}/sys/fs/inotify/max_user_watches r,
+  deny @{PROC}/@{pid}/{stat,statm} r,
+  deny @{PROC}/@{pid}/cmdline r,
+
+  # nvidia
+  /opt/cuda/targets/x86_64-linux/lib/* rm,
+
+  # sys
+  @{sys}/devices/system/cpu/possible r,
+  @{sys}/bus/pci/devices/ r,
+  @{sys}/devices/pci[0-9]*/**/{class,config} r,
+  deny @{sys}/devices/virtual/tty/tty[0-9]*/active r,
+
+  # run
+  owner /run/user/*/discord-ipc-* rw,
+  owner /run/user/*/dconf/user rw,
+
+  # etc
+  /etc/libva.conf r,
+  /etc/fstab r,
+}
+
+profile sandbox {
+  include <abstractions/base>
+
+  capability sys_admin,
+  capability setuid,
+  capability setgid,
+  capability sys_chroot,
+
+  /usr/lib/electron*/electron px -> electron,
+}
+
+profile crashpad {
+  include <abstractions/base>
+
+  owner @{HOME}/.config/discord/Crashpad/* rwk,
+  owner @{HOME}/.config/discord/Crashpad/pending/ r,
+  owner @{HOME}/.config/discord/Crashpad/pending/** r,
+
+  # PROC
+  owner @{PROC}/@{pid}/task/ r,
+}

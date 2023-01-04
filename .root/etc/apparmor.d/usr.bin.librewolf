@@ -1,0 +1,15 @@
+# vim:syntax=apparmor
+# Last Modified: Tue Sep 20 13:03:17 2022
+abi <abi/3.0>,
+
+include <tunables/global>
+
+/usr/bin/librewolf {
+  include <abstractions/base>
+  include <abstractions/bash>
+
+  /usr/bin/dash ix,
+  /usr/bin/librewolf r,
+  /usr/lib/librewolf/librewolf Px,
+
+}
