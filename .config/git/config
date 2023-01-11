@@ -17,3 +17,5 @@
 	defaultBranch = master
 [merge]
 	tool = vimdiff
+[submodule]
+	recurse = true
