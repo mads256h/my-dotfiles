@@ -1,4 +1,0 @@
-read-only ${HOME}/.config/bash
-read-only ${HOME}/.config/i3blocks
-read-only ${HOME}/.config/latexmk
-read-only ${HOME}/.config/vifm
