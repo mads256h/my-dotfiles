@@ -79,18 +79,19 @@ interval=30
 
 [disk]
 label=1💽
-DIR=/mnt/hdd1
+instance=/mnt/hdd1
 interval=30
 separator=false
 
 [disk]
 label=2💽
-DIR=/mnt/hdd2
+instance=/mnt/hdd2
 interval=30
 separator=false
 
 [disk]
 label=💾
+instance=/
 #DIR=/mnt/data
 interval=30
 #separator=false
