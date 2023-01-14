@@ -19,7 +19,7 @@ DIR="${DIR:-$HOME}"
 ALERT_LOW="${ALERT_LOW:-$1}"
 ALERT_LOW="${ALERT_LOW:-10}" # color will turn red under this value (default: 10%)
 
-[ "$BLOCK_BUTTON" = "1" ] && ($TERMINAL -e dua -x i "$DIR" &) >/dev/null 2>&1
+[ "$BLOCK_BUTTON" = "1" ] && ($TERMINAL -e dua -x -i "$HOME/mnt/" i "$DIR" &) >/dev/null 2>&1
 
 LOCAL_FLAG="-l"
 if [ "$1" = "-n" ] || [ "$2" = "-n" ]; then
