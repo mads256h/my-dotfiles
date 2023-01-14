@@ -27,10 +27,16 @@ include <tunables/global>
   # Dissallow accessing hidden files
   audit deny @{HOME}/**/.* mrwkl,
 
+  # Audio
+  /usr/share/pipewire/client.conf r,
+  /etc/pipewire/client.conf.d/ r,
+  /etc/pipewire/client.conf.d/* r,
+
   # System config
   /etc/mpv/** r,
   /etc/libva.conf r,
   /usr/share/icons/**/index.theme r,
+  /etc/nsswitch.conf r,
 
   # Nvidia (should be an abstraction)
   /dev/nvidia-uvm rw,
@@ -46,6 +52,7 @@ include <tunables/global>
   /usr/share/egl/egl_external_platform.d/* r,
 
   # proc and sysfs
+  owner @{PROC}/@{pid}/comm r,
   owner @{PROC}/@{pid}/cmdline r, 
   owner @{PROC}/@{pid}/task/[0-9]*/comm rw,
   /proc/sys/vm/mmap_min_addr r,
