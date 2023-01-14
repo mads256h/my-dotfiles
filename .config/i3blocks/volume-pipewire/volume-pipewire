@@ -106,8 +106,6 @@ function set_default_playback_device_next {
     move_sinks_to_new_default $default_sink
 }
 
-echo "$BLOCK_BUTTON" >> "$HOME/audio_test.txt"
-
 case "$BLOCK_BUTTON" in
     1) set_default_playback_device_next ;;
     2) amixer -q -D $MIXER sset $SCONTROL $CAPABILITY toggle ;;
