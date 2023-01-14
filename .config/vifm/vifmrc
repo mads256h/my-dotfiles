@@ -384,10 +384,10 @@ filextype */
         \ Thunar %f &,
 
 " json
-fileviewer *.json jq -C . %c
+fileviewer {*.json},<application/json,text/json> jq -C . %c
 
 " code highlighting
-fileviewer *.js,*.c,*.h,*.cpp,*.hpp,*.sh,*.bash,*.cs,*.rs pygmentize -O style=monokai -f console256 -g
+fileviewer {*.js,*.c,*.h,*.cpp,*.hpp,*.sh,*.bash,*.cs,*.rs,*.xml,*.py,*.tex,CMakeLists.txt,*.toml,*.yml,*.yaml,*.lua,*.css,*.html,*.md,*.nix,*.proto,*.diff,PKGBUILD} pygmentize -O style=monokai -f console256 -g
 
 " everything else
 fileviewer *[^/] output-or-file %c
