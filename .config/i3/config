@@ -37,10 +37,14 @@ gaps outer 15
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_media pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_media
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_media
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_media
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_media
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioRaiseVolume --release exec $refresh_media
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioLowerVolume --release exec $refresh_media
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMute --release exec $refresh_media
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMicMute --release exec $refresh_media
 
 # Use playerctl to control media
 bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous && sleep 0.2 && $refresh_media
@@ -53,8 +57,8 @@ bindsym $mod+Mod1+Up    exec --no-startup-id playerctl -p spotify play-pause && 
 bindsym $mod+Mod1+Down  exec --no-startup-id playerctl -p spotify play-pause && sleep 0.2 && $refresh_media
 
 # Backlight controls
-bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl -q set +10%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -q set 10%-
+bindsym XF86MonBrightnessUp   exec brightnessctl -q set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl -q set 10%-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
