@@ -383,20 +383,17 @@ filextype */
         \ {View in thunar}
         \ Thunar %f &,
 
-" Syntax highlighting in preview
-"
-" Explicitly set highlight type for some extensions
-"
-" 256-color terminal
-fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
-fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
-"
-" 16-color terminal
-" fileviewer *.c,*.h highlight -O ansi -s dante %c
-"
+" json
+fileviewer *.json jq -C . %c
+
+" code highlighting
+fileviewer *.js,*.c,*.h,*.cpp,*.hpp,*.sh,*.bash,*.cs,*.rs pygmentize -O style=monokai -f console256 -g
+
+" everything else
+fileviewer *[^/] output-or-file %c
+
 " Or leave it for automatic detection
 "
-" fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
 
 " Displaying pictures in terminal
 "
