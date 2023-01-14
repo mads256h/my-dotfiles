@@ -1,18 +1,24 @@
-# volume-pulseaudio
+# Before using this block
+
+This is a fork of the block volume-pulseaudio, that supports pipewire,
+pulseaudio, and alsa. This is achieved by using the tool pactl instead of pacmd.
+So hopefuly this should be the future of this block.
+
+# volume-pipewire
 
 Display the system volume and
-optionally the default playback device and indeax.
+optionally the default playback device and index.
 Offers controls for these via clicks/scrolling.
 Supports changing audiostreams that are already playing.
 
-![](volume-pulseaudio-high.png)
-![](volume-pulseaudio-med.png)
-![](volume-pulseaudio-low.png)
-![](volume-pulseaudio-mute.png)
+![](volume-pipewire-high.png)
+![](volume-pipewire-med.png)
+![](volume-pipewire-low.png)
+![](volume-pipewire-mute.png)
 
 # Dependencies
 
-pulseaudio, alsa (alsa-utils package), fontawesome (fonts-font-awesome package) for the speaker symbols
+pipewire-pulse, pipewire-alsa, pipewire-jack, alsa-utils, fontawesome (fonts-font-awesome package) for the speaker symbols
 
 # Usage
 
@@ -21,10 +27,19 @@ adjusts volume. If your keyboard has audio buttons, it is suggested to add the
 the following to your i3 config
 
 ```
-# change volume or toggle mute
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+# Pipewire-pulse
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute --release exec pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioLowerVolume --release exec pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioRaiseVolume --release exec pkill -RTMIN+1 i3blocks
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 ```
 
 where the number `1` in `-RTMIN+1` can be replaced to another signal number,
@@ -39,8 +54,8 @@ and always uses the `LONG_FORMAT`.
 # Config
 
 ```INI
-[volume-pulseaudio]
-command=$SCRIPT_DIR/volume-pulseaudio
+[volume-pipewire]
+command=$SCRIPT_DIR/volume-pipewire
 interval=once
 signal=1
 #MIXER=[determined automatically]

@@ -45,10 +45,17 @@ separator=false
 # The second parameter overrides the mixer selection
 # See the script for details.
 
-[volume-pulseaudio]
-interval=once
-signal=10
+[volume-pipewire]
 #STEP=5%
+#command=$SCRIPT_DIR/volume-pipewire
+signal=10
+interval=10
+#SUBSCRIBE=1
+USE_ALSA_NAME=1
+AUDIO_HIGH_SYMBOL=🔊
+AUDIO_MED_SYMBOL=🔈
+AUDIO_LOW_SYMBOL=🔇
+AUDIO_MUTED_SYMBOL=🔇
 
 # Memory usage
 #
