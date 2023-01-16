@@ -255,8 +255,11 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 "        \ vifmimg clear
 
 
+" GIF
+filextype *.gif mpv %f --loop-file=inf
+
 " Images
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm},<image/*>
         \ {View in feh}
         \ feh %f,
 fileviewer {*.bmp,*.jpg,*.jpeg,*.gif,*.png,*.xpm},<image/*>
