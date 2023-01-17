@@ -309,8 +309,8 @@ filetype {*.asc},<application/pgp-signature>
        \ !!gpg --verify %c,
 
 " Torrent
-filetype {*.torrent},<application/x-bittorrent> ktorrent %f &
-fileviewer {*.torrent},<application/x-bittorrent> dumptorrent -v %c
+filetype {*.torrent},<application/x-bittorrent> tremc %c
+fileviewer {*.torrent},<application/x-bittorrent> transmission-show %c
 
 " FuseZipMount
 filetype {*.zip,*.jar,*.war,*.ear,*.oxt,*.apkg},
