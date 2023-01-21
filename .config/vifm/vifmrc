@@ -70,7 +70,7 @@ colorscheme Default-256 Default
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
 " See man date or man strftime for details.
 
-set timefmt=%m/%d\ %H:%M
+set timefmt=%F\ %H:%M
 
 " Show list of matches on tab completion in command-line mode
 
@@ -116,7 +116,7 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 set previewoptions+=graphicsdelay:0
 
 " Columns
-set viewcolumns=-{name},14{perms},15{mtime},9{size}
+set viewcolumns=-{name},-15{perms},15{mtime},9{size}
 
 " Slowfs
 set slowfs+=/home/mads/mnt
