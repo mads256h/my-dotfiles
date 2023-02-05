@@ -1,13 +1,13 @@
 {
     "createdBy": "Redirector v3.5.3",
-    "createdAt": "2021-12-29T01:29:35.000Z",
+    "createdAt": "2023-02-05T21:52:47.942Z",
     "redirects": [
         {
             "description": "Reddit to teddit",
             "exampleUrl": "https://reddit.com/r/privacy",
             "exampleResult": "https://teddit.net/r/privacy",
             "error": null,
-            "includePattern": "^https?://(.*)reddit.com(.*)",
+            "includePattern": "^https?://(.*)reddit\\.com(.*)",
             "excludePattern": "",
             "patternDesc": "",
             "redirectUrl": "https://teddit.net$2",
