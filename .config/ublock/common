@@ -1,0 +1,58 @@
+! Title: mads256h common
+! Description: Common filters used across computers and mobile
+! Expires: 1 day
+! Last modified: 05 Jul 2023 15:55 UTC
+! Homepage: https://github.com/mads256h/my-dotfiles
+
+! Whosampled
+www.whosampled.com##[src="/static/images/banners/app-banner-desktop-1100x131.jpg"]
+www.whosampled.com##.premium-btn-wrapper
+
+! Musixmatch
+www.musixmatch.com##._379Lbkm0U58yJgAGxIIOJ5
+www.musixmatch.com##.new.mxm-upselling-content
+
+! Wikia
+fandom.com##.pathfinder-wrapper.gzTwlZ.sc-gtsrHT
+fandom.com##.pathfinder-wrapper.dvlmvB.sc-jrQzAO
+fandom.com###WikiaBar
+fandom.com##.global-navigation
+fandom.com###mixed-content-footer
+fandom.com##.mcf-wrapper
+fandom.com##.global-footer
+fandom.com##.global-registration-buttons
+fandom.com###highlight__main-container
+! Make it fill the whole page after removing the sidebar
+fandom.com##.main-container:style(margin-left:0 !important)
+fandom.com##.main-container:style(width:100% !important)
+fandom.com##.fandom-community-header__background.fullScreen:style(width:100% !important)
+fandom.com##.fandom-sticky-header:style(left:0 !important)
+! Remove access to indexedDB and localStorage
+fandom.com##+js(aopr, indexedDB)
+fandom.com##+js(aopr, localStorage)
+
+! Channel 4
+! Remove party hat
+||s.4cdn.org/image/partyhat.gif$image
+boards.4channel.org##.party-hat
+boards.4chan.org##.party-hat
+! enable infinite scrolling (no cookies needed)
+boards.4channel.org##+js(set, Config.alwaysDepage, true)
+boards.4chan.org##+js(set, Config.alwaysDepage, true)
+! Ads
+boards.4chan.org##.aboveMidAd
+boards.4chan.org##.center.middlead
+boards.4chan.org###globalToggle
+boards.4chan.org##.adl
+boards.4channel.org##.aboveMidAd
+boards.4channel.org##.center.middlead
+boards.4channel.org###globalToggle
+boards.4channel.org##.adl
+
+! 2023-04-09 https://wiki.aidancbrady.com
+||wiki.aidancbrady.com/w/skins/common/images/ads/
+
+! Rutracker
+! Block iframes on rutracker
+rutracker.org##iframe
+rutracker.org##.ext-links.products.bn-bottom

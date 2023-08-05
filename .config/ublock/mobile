@@ -1,0 +1,12 @@
+! Title: mads256h mobile
+! Description: Mobile only filters
+! Expires: 1 day
+! Last modified: 05 Jul 2023 15:55 UTC
+! Homepage: https://github.com/mads256h/my-dotfiles
+
+! Channel 4
+! Set dark theme (no cookies needed)
+boards.4channel.org##+js(trusted-set, activeStyleSheet, "Tomorrow")
+boards.4chan.org##+js(trusted-set, activeStyleSheet, "Tomorrow")
+boards.4channel.org##+js(set, Config.darkTheme, true)
+boards.4chan.org##+js(set, Config.darkTheme, true)
