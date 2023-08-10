@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-xset m 0 0 &
-xinput --set-prop "Laview Technology Mionix Naos 7000" "libinput Accel Speed" -1 &
+xset m 0 0
+xinput --set-prop "Laview Technology Mionix Naos 7000" "libinput Accel Speed" -1
 xrdb "$XDG_CONFIG_HOME"/X11/Xresources
 eval $(xrdb-env)
 [ "$HOSTNAME" = "DESKTOP-MADS" ] && /usr/lib/kdeconnectd &
