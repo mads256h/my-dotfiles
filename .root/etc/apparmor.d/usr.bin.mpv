@@ -28,9 +28,9 @@ include <tunables/global>
   audit deny @{HOME}/**/.* mrwkl,
 
   # Audio
-  /usr/share/pipewire/client.conf r,
-  /etc/pipewire/client.conf.d/ r,
-  /etc/pipewire/client.conf.d/* r,
+  /usr/share/pipewire/client{,-rt}.conf r,
+  /etc/pipewire/client{,-rt}.conf.d/ r,
+  /etc/pipewire/client{,-rt}.conf.d/* r,
 
   # System config
   /etc/mpv/** r,
