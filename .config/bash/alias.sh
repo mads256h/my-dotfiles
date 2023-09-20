@@ -43,8 +43,8 @@ alias dotgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # filemanager (vifm)
 alias fm='vifmrun'
 
-# set signing key in git repo to main key
-alias gsp='git config user.signingKey 75C8BC5DCCE7257DA133C6CECCD33BA72D54F208'
+# get public ip address
+alias myip='curl ipaddress.sh'
 
 # connect to sshfs when on home network
 alias s='sshfs -o idmap=user,reconnect -C mads@server-mads.lan:/mnt/share ~/mnt/ || sshfs -o idmap=user,reconnect -C mads@home.madsmogensen.dk:/mnt/share ~/mnt/'
