@@ -16,6 +16,10 @@ export CCACHE_DIR="$XDG_CACHE_HOME"/ccache
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
 
+# docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
+
 # Golang
 export GOPATH="$XDG_DATA_HOME"/go
 
