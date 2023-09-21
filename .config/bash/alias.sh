@@ -23,7 +23,7 @@ alias cv='nvim $HOME/.config/nvim/init.lua'
 alias ci3='nvim $HOME/.config/i3/config'
 
 # xinitrc configuration shortcut
-alias cx='nvim $HOME/.xinitrc'
+alias cx='nvim $XDG_CONFIG_HOME/X11/xinitrc'
 
 # connect to server on home network
 alias cs='ssh server-mads.lan; test "$?" -eq 255 && (ssh 192.168.1.150; test "$?" -eq 255 && ssh home.madsmogensen.dk)'

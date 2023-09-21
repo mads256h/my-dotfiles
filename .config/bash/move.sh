@@ -49,6 +49,10 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 
 
+# octave
+export OCTAVE_HISTFILE="$XDG_CACHE_HOME"/octave_hist
+
+
 # Rust cargo
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 
@@ -64,10 +68,15 @@ export DOT_SAGE="$XDG_CONFIG_HOME"/sage
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 
 
+# wine
+mkdir "$XDG_DATA_HOME"/wineprefixes 2>/dev/null
+export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
+
+
+# xinit
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
+
 # xorg-xauth
 mkdir "$XDG_RUNTIME_DIR"/gdm 2>/dev/null
 export XAUTHORITY="$XDG_RUNTIME_DIR"/gdm/Xauthority
-
-
-# octave
-export OCTAVE_HISTFILE="$XDG_CACHE_HOME"/octave_hist

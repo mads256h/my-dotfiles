@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Move xorg cache files
+USERXSESSION="$XDG_CACHE_HOME/X11/xsession"
+USERXSESSIONRC="$XDG_CACHE_HOME/X11/xsessionrc"
+ALTUSERXSESSION="$XDG_CACHE_HOME/X11/Xsession"
+ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+
 numlockx
 xrdb "$XDG_CONFIG_HOME"/X11/Xresources
 eval $(xrdb-env)
