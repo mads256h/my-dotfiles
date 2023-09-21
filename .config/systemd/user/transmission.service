@@ -1,0 +1,11 @@
+[Unit]
+Description=Transmission Daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/transmission-daemon -f
+Restart=always
+KillMode=process
+
+[Install]
+WantedBy=default.target

@@ -3,6 +3,7 @@
 # Android and adb
 export ANDROID_PREFS_ROOT="$XDG_CONFIG_HOME"/android
 export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME"/android/emulator
+export ANDROID_HOME="$XDG_DATA_HOME"/android
 
 # bash
 export HISTFILE="$XDG_STATE_HOME"/bash/history
