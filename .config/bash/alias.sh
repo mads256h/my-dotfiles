@@ -40,6 +40,9 @@ alias ck='ssh -X -p 26666 mads@127.0.0.1'
 # dotfiles bare git repo shortcut
 alias dotgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# source esp sdk
+alias esp='source /opt/esp-idf/export.sh'
+
 # filemanager (vifm)
 alias fm='vifmrun'
 
