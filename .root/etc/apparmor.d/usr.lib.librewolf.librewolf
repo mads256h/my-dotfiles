@@ -159,6 +159,9 @@
   owner /{,var/}run/user/*/org.keepassxc.KeePassXC.BrowserServer rw,
   /usr/bin/keepassxc-proxy Ux,
 
+  # Allow opening /usr/lib/gio-launch-desktop
+  /usr/lib/gio-launch-desktop Ux,
+
   # To set the browser as the default
   owner /{,var/}run/user/*/dconf/user w,
 
