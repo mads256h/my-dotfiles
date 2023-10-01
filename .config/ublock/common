@@ -56,3 +56,7 @@ boards.4channel.org##.adl
 ! Block iframes on rutracker
 rutracker.org##iframe
 rutracker.org##.ext-links.products.bn-bottom
+
+! Archlinux Wiki
+! Always expand sidebar
+wiki.archlinux.org###mw-panel:style(display:block !important)
