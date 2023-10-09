@@ -19,128 +19,34 @@
 
 #include <tunables/global>
 
-# We want to confine the binaries that match:
-#  /usr/lib/firefox/firefox
-#  /usr/lib/firefox/firefox
-# but not:
-#  /usr/lib/firefox/firefox.sh
 /usr/lib/librewolf/librewolf {
-  #include <abstractions/audio>
-  #include <abstractions/base>
-  #include <abstractions/cups-client>
-  #include <abstractions/dbus-strict>
-  #include <abstractions/dbus-session-strict>
-  #include <abstractions/dconf>
-  #include <abstractions/gnome>
-  #include <abstractions/ibus>
-  #include <abstractions/nameservice>
-  #include <abstractions/openssl>
-  #include <abstractions/p11-kit>
-  #include <abstractions/nvidia>
+  include <abstractions/audio>
+  include <abstractions/base>
+  include <abstractions/dbus-session-strict>
+  include <abstractions/dconf>
+  include <abstractions/dri-enumerate>
+  include <abstractions/freedesktop.org>
+  include <abstractions/fonts>
+  include <abstractions/gnome>
+  include <abstractions/gtk>
+  include <abstractions/ibus>
+  include <abstractions/vulkan>
+  include <abstractions/nameservice>
+  include <abstractions/nvidia>
+  include <abstractions/user-tmp>
+  include <abstractions/X>
+  include <abstractions/mozilla>
 
-  network netlink raw,
-  unix (send, receive) type=(stream),
-  unix (send, receive) type=(seqpacket),
-  unix (send, receive) type=(raw),
-  owner @{PROC}/[0-9]*/cgroup r,
-  owner @{PROC}/[0-9]*/{uid_map,gid_map,setgroups,oom_score_adj} rw,
 
-  dbus (send)
-       bus=system
-       interface=org.freedesktop.DBus.Properties
-       path=/org/freedesktop/hostname[0-9]*
-       member=GetAll,
-
-  # for networking
-  network inet stream,
-  network inet6 stream,
-  @{PROC}/[0-9]*/net/arp r,
-  @{PROC}/[0-9]*/net/if_inet6 r,
-  @{PROC}/[0-9]*/net/ipv6_route r,
-  @{PROC}/[0-9]*/net/dev r,
-  @{PROC}/[0-9]*/net/wireless r,
-  dbus (send)
-       bus=system
-       path=/org/freedesktop/NetworkManager
-       member=state,
-  dbus (receive)
-       bus=system
-       path=/org/freedesktop/NetworkManager,
-
-  # should maybe be in abstractions
-  /etc/mime.types r,
-  /etc/mailcap r,
-  owner @{HOME}/.local/share/applications/defaults.list r,
-  owner @{HOME}/.local/share/applications/mimeapps.list r,
-  owner @{HOME}/.local/share/applications/mimeinfo.cache r,
-  owner /tmp/** m,
-  owner /var/tmp/** m,
-
-  # let the shell know we launched something
-  dbus (send)
-     bus=session
-     interface=org.gtk.gio.DesktopAppInfo
-     member=Launched,
-
-  /etc/timezone r,
-
-  # noisy
-  deny @{HOME}/.local/share/recently-used.xbel r,
-
-  # These are needed when a new user starts firefox and firefox.sh is used
-  @{MOZ_LIBDIR}/** ixr,
-  @{PROC}/[0-9]*/cmdline r,
-  @{PROC}/[0-9]*/mountinfo r,
-  @{PROC}/[0-9]*/stat r,
-  owner @{PROC}/[0-9]*/task/[0-9]*/stat r,
-  owner @{PROC}/[0-9]*/task/[0-9]*/comm rw,
-  owner @{PROC}/[0-9]*/fd/ r,
-  owner @{PROC}/[0-9]*/fd/* r,
-  @{PROC}/[0-9]*/status r,
-  /sys/devices/pci[0-9]*/**/{,uevent,class,config,drm/,drm/**} r,
-  /sys/devices/platform/**/uevent r,
-  /sys/devices/pci*/**/{busnum,idVendor,idProduct} r,
-  /sys/devices/pci*/**/{,subsystem_}device r,
-  /sys/devices/pci*/**/{,subsystem_}vendor r,
-  /sys/devices/system/node/node[0-9]*/meminfo r,
-  # /sys/devices/pci[0-9]*/**/{config,revision} r,
-  owner @{HOME}/.cache/thumbnails/** w,
-
-  # Nvidia
-  /usr/bin/nvidia-modprobe Ux,
-  /etc/libva.conf r,
-  @{HOME}/.cache/nvidia/** rwk,
-  /usr/share/glvnd/egl_vendor.d/ r,
-  /usr/share/glvnd/egl_vendor.d/* r,
-  /usr/share/egl/egl_external_platform.d/ r,
-  /usr/share/egl/egl_external_platform.d/* r,
-  /sys/bus/pci/devices/ r,
-  /opt/cuda/targets/x86_64-linux/lib/* rm,
-  /dev/ r,
-
-  # Needed for the crash reporter
-  /sys/devices/system/cpu/** r,
-
-  # about:memory
-  owner @{PROC}/[0-9]*/statm r,
-  owner @{PROC}/[0-9]*/smaps r,
-
-  # Downloads and Desktop folders
+  # Home
   owner @{HOME}/ r,
   owner @{USER_DIR}/ r,
   owner @{USER_DIR}/** rw,
   @{HOME}/mnt/ r,
   @{HOME}/mnt/** r,
 
-  # Noisy
-  audit deny /{,var/}tmp/** mx,
-  audit deny @{HOME}/{*,[^.]**} mx,
-  audit deny @{HOME}/.[^amf]*/** m,
-  audit deny @{HOME}/.[^a]*/** x,
-  # audit deny @{HOME}/** x,
-  # audit deny owner /**/* x,
-
-  deny @{PROC}/version r,
+  # noisy
+  deny @{HOME}/.local/share/recently-used.xbel r,
 
   audit deny @{HOME}/.* w,
   audit deny @{HOME}/.bash_history r,
@@ -155,29 +61,15 @@
   owner @{HOME}/.cache/librewolf/** rwk,
   owner @{HOME}/.config/dconf/user w,
 
+
   # Allow access to keepassxc
-  owner /{,var/}run/user/*/org.keepassxc.KeePassXC.BrowserServer rw,
+  owner /{,var/}run/user/@{uid}/org.keepassxc.KeePassXC.BrowserServer rw,
   /usr/bin/keepassxc-proxy Ux,
 
   # Allow opening /usr/lib/gio-launch-desktop
   /usr/lib/gio-launch-desktop Ux,
 
-  # To set the browser as the default
-  owner /{,var/}run/user/*/dconf/user w,
-
-  # freedesktop.org ScreenSaver
-  dbus (send)
-       bus=session
-       path=/{,org/freedesktop/,org.gnome/}Screen{s,S}aver
-       interface=org.freedesktop.ScreenSaver
-       member={Inhibit,UnInhibit,SimulateUserActivity}
-       peer=(label=unconfined),
-
-  # gnome, kde and cinnamon screensaver
-  dbus (send)
-       bus=session
-       path=/{,ScreenSaver}
-       interface=org.{gnome.ScreenSaver,kde.screensaver,cinnamon.ScreenSaver}
-       member=SimulateUserActivity
-       peer=(label=unconfined),
+  # Self binaries
+  /usr/lib/librewolf/librewolf ix,
+  /usr/lib/librewolf/glxtest Ux,
 }

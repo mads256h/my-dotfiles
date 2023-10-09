@@ -22,8 +22,10 @@ include <tunables/global>
   include <abstractions/nvidia>
   include <abstractions/user-tmp>
   include <abstractions/X>
+  include <abstractions/mozilla>
 
   /usr/lib/thunderbird/thunderbird ix,
+  /usr/lib/thunderbird/glxtest pux,
   /usr/lib/gio-launch-desktop pux,
 
   # Home
@@ -34,32 +36,5 @@ include <tunables/global>
   # Config
   owner @{HOME}/.thunderbird/** rwk,
   owner @{HOME}/.cache/thunderbird/** rwk,
-
-  # Etc
-  /etc/mime.types r,
-  /usr/share/egl/egl_external_platform.d/ r,
-  /usr/share/egl/egl_external_platform.d/** r,
-
-  # Proc
-  owner @{PROC}/@{pid}/* r,
-  owner @{PROC}/@{pid}/task/@{pid}/stat r,
-  owner @{PROC}/@{pid}/task/@{pid}/comm rw,
-  owner @{PROC}/@{pid}/fd/ r,
-  owner @{PROC}/@{pid}/fd/* r,
-  @{PROC}/sys/dev/i915/perf_stream_paranoid r,
-
-  # sys
-  @{sys}/devices/system/cpu/{present,possible} r,
-  @{sys}/bus/pci/devices/ r,
-  @{sys}/devices/pci[0-9]*/**/{class,revision,config} r,
-  @{sys}/devices/system/cpu/cpufreq/policy[0-9]/cpuinfo_max_freq r,
-  @{sys}/devices/system/cpu/cpu[0-9]*/cache/index[0-9]*/size r,
-
-  # dconf
-  /run/user/@{uid}/dconf/user rw,
-
-  # networking
-  network inet dgram,
-  network inet stream,
 }
 
