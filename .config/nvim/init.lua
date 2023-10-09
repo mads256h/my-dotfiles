@@ -35,6 +35,8 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   -- Context for stuff
   use 'nvim-treesitter/nvim-treesitter-context'
+  -- Write files with sudo
+  use 'lambdalisue/suda.vim'
 end)
 
 -- Treesitter configuration
