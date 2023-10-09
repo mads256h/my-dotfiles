@@ -6,6 +6,7 @@
 
 # Proc
 owner @{PROC}/@{pid}/* r,
+owner @{PROC}/@{pid}/task/ r,
 owner @{PROC}/@{pid}/task/@{pid}/stat r,
 owner @{PROC}/@{pid}/task/@{pid}/comm rw,
 owner @{PROC}/@{pid}/fd/ r,
@@ -28,7 +29,7 @@ owner @{PROC}/@{pid}/oom_score_adj w,
 /dev/char/195* rw,
 /opt/cuda/** rm,
 /sys/devices/pci[0-9]*/**/{,uevent,class,config,drm/,drm/**} r,
-/sys/devices/platform/**/uevent r,
+/sys/devices/platform/** r,
 /sys/devices/pci*/**/{busnum,idVendor,idProduct} r,
 /sys/devices/pci*/**/{,subsystem_}device r,
 /sys/devices/pci*/**/{,subsystem_}vendor r,

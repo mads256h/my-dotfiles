@@ -33,6 +33,7 @@
   include <abstractions/vulkan>
   include <abstractions/nameservice>
   include <abstractions/nvidia>
+  include <abstractions/private-files>
   include <abstractions/user-tmp>
   include <abstractions/X>
   include <abstractions/mozilla>
