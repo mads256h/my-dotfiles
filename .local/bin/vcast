@@ -6,4 +6,4 @@ if [ "$#" -ne 1 ]; then
 fi
 
 
-ffmpeg -f x11grab -i :0 -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -tune zerolatency -r 30 -b:v 1000k -minrate 1000k -maxrate 1000k -f mpegts "tcp://$1:50921"
+ffmpeg -vaapi_device /dev/dri/renderD128 -f x11grab -video_size 1920x1080 -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -tune zerolatency -r 30 -qp 30 -f mpegts "tcp://$1:50921"
