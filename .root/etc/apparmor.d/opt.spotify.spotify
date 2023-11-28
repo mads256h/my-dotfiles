@@ -61,5 +61,7 @@ include <tunables/global>
   # shm
   owner /dev/shm/.org.chromium.Chromium.* rw,
   owner /tmp/.org.chromium.Chromium.* rw,
+  owner /tmp/.org.chromium.Chromium.*/ rw,
+  owner /tmp/.org.chromium.Chromium.*/** rw,
 }
 
