@@ -270,6 +270,10 @@ vim.o.tabstop = 2
 -- Use powerline fonts
 vim.g.airline_powerline_fonts = 1
 
+
+-- Set background to transparent
+vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
+
 -- Copy paste
 vim.api.nvim_set_keymap("n", "<c-c>", '"+yy', {noremap=true, silent=true})
 vim.api.nvim_set_keymap("v", "<c-c>", '"+y', {noremap=true, silent=true})
