@@ -9,6 +9,7 @@
 -- bash-language-server
 -- cmake-language-server
 -- haskell-language-server
+-- lua-language-server
 
 local use = require('packer').use;
 
@@ -37,7 +38,23 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-context'
   -- Write files with sudo
   use 'lambdalisue/suda.vim'
+
+  -- Lua lsp for nvim configs
+  use 'folke/neodev.nvim'
+
+  -- Theme
+  use 'navarasu/onedark.nvim'
 end)
+
+require('onedark').setup({
+  style = 'dark',
+  transparent = true,
+})
+
+vim.cmd.colorscheme('onedark')
+
+
+require('neodev').setup({})
 
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
@@ -134,7 +151,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'rust_analyzer', 'pyright', 'tsserver', 'texlab', 'bashls', 'cmake', 'cssls', 'eslint', 'html', 'jsonls', 'hls' }
+local servers = { 'rust_analyzer', 'pyright', 'tsserver', 'texlab', 'bashls', 'cmake', 'cssls', 'eslint', 'html', 'jsonls', 'hls', 'lua_ls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -343,26 +360,8 @@ latex_binding("fn", 'o\\begin{figure}[H]<CR>\\centering<CR><++><CR>\\caption{<++
 
 
 
---[[
-" Sections
-nmap <space>lch o\chapter{<++>}<CR><ESC>k0
-nmap <space>lse o\section{<++>}<CR><ESC>k0
-nmap <space>lss o\subsection{<++>}<CR><ESC>k0
-nmap <space>lsS o\subsubsection{<++>}<CR><ESC>k0
-nmap <space>lsp o\paragraph{<++>}<CR><ESC>k0
-nmap <space>lsP o\subparagraph{<++>}<CR><ESC>k0
-
-" Math
-nmap <space>leq o\begin{equation}<CR><++><CR>\end{equation}<CR><ESC>2k0
-nmap <space>les o\begin{equation}<CR>\begin{aligned}<CR><++><CR>\end{aligned}<CR>\end{equation}<CR><ESC>3k0
-nmap <space>let o\begin{theorem}<CR><++><CR>\end{theorem}<CR><ESC>2k0
-nmap <space>lep o\begin{proof}<CR><++><CR>\end{proof}<CR><ESC>2k0
-
-" Figure
-nmap <space>lfg o\begin{figure}[H]<CR>\centering<CR>\includegraphics[width=\textwidth]{<++>}<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><ESC>4k0
-nmap <space>lfn o\begin{figure}[H]<CR>\centering<CR><++><CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><ESC>4k0
-
-" Listings
-nmap <space>llc o\begin{listing}[H]<CR>\begin{minted}[breaklines, linenos]{<++>}<CR><++><CR>\end{minted}<CR>\caption{<++>}<CR>\label{lst:<++>}<CR>\end{listing}<CR><ESC>6k0Vj:s/^  //<CR>:noh<CR>k
-nmap <space>lli o\begin{listing}[H]<CR>\inputminted[breaklines, linenos, firstline=<++>, lastline=<++>]{<++>}{<++>}<CR>\caption{<++>}<CR>\label{lst:<++>}<CR>\end{listing}<CR><ESC>4k0
---]]
+-- Disable unused providers
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
