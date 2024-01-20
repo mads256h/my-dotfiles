@@ -111,7 +111,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local cmp_lsp = require("cmp_nvim_lsp")
 
 
-
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = cmp_lsp.default_capabilities()
 
@@ -210,6 +209,9 @@ require('gitsigns').setup {
     changedelete = { hl = 'GitGutterChange', text = '~' },
   },
 }
+
+-- Vim stuff
+vim.keymap.set("n", "m", "<cmd>:Neotree toggle<CR>")
 
 -- Current line in left gutter
 vim.o.number = true
