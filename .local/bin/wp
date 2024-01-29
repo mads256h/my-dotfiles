@@ -6,5 +6,5 @@ WALLPAPER="$(find "$WALLPAPER_DIR" | shuf | tail -1)"
 feh --no-fehbg --bg-scale "$WALLPAPER"
 #convert "$WALLPAPER" -modulate 30% -gaussian-blur 0x8 - | jpg2ff > "$XDG_DATA_HOME/wallpaper.ff"
 #convert "$WALLPAPER" -modulate 30% - | jpg2ff > "$XDG_DATA_HOME/wallpaper.ff"
-convert "$WALLPAPER" -depth 16 -channel R +level 0,30% -channel G +level 0,30% -channel B +level 0,30% +channel -gaussian-blur 0x8 -dither FloydSteinberg -colors 16777216 /tmp/background.png
-png2ff < /tmp/background.png > "$XDG_DATA_HOME/wallpaper.ff"
+convert "$WALLPAPER" -depth 16 -channel R +level 0,30% -channel G +level 0,30% -channel B +level 0,30% +channel -gaussian-blur 0x8 -dither FloydSteinberg -colors 16777216 "$XDG_DATA_HOME/wallpaper.png"
+png2ff < "$XDG_DATA_HOME/wallpaper.png" > "$XDG_DATA_HOME/wallpaper.ff"
