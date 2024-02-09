@@ -60,3 +60,16 @@ rutracker.org##.ext-links.products.bn-bottom
 ! Archlinux Wiki
 ! Always expand sidebar
 wiki.archlinux.org###mw-panel:style(display:block !important)
+
+! Youtube
+! Remove rounded corners on videos
+youtube.com###ytd-player.ytd-watch-flexy:style(border-radius: 0 !important)
+
+! Remove sponsor button
+youtube.com###sponsor-button
+
+! Remove clarify box
+youtube.com###clarify-box
+
+! Remove voice search
+youtube.com###voice-search-button
