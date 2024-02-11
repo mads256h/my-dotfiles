@@ -73,3 +73,8 @@ youtube.com###clarify-box
 
 ! Remove voice search
 youtube.com###voice-search-button
+
+
+! therobotreport: Show site when javascript is not enabled
+therobotreport.com###body-wrapper:style(opacity: unset !important)
+therobotreport.com###prestitial
