@@ -1,11 +1,11 @@
 {
     "createdBy": "Redirector v3.5.3",
-    "createdAt": "2023-02-05T21:52:47.942Z",
+    "createdAt": "2024-02-11T14:04:24.102Z",
     "redirects": [
         {
             "description": "Reddit to teddit",
-            "exampleUrl": "https://reddit.com/r/privacy",
-            "exampleResult": "https://teddit.net/r/privacy",
+            "exampleUrl": "https://www.reddit.com/r/findareddit/comments/n5b9pn/sub_for_nasty_4chan_rooms/",
+            "exampleResult": "https://teddit.net/r/findareddit/comments/n5b9pn/sub_for_nasty_4chan_rooms/",
             "error": null,
             "includePattern": "^https?://(.*)reddit\\.com(.*)",
             "excludePattern": "",
@@ -13,7 +13,7 @@
             "redirectUrl": "https://teddit.net$2",
             "patternType": "R",
             "processMatches": "noProcessing",
-            "disabled": false,
+            "disabled": true,
             "grouped": false,
             "appliesTo": [
                 "main_frame"
@@ -100,7 +100,7 @@
             "redirectUrl": "https://bibliogram.pussthecat.org/u$2",
             "patternType": "R",
             "processMatches": "noProcessing",
-            "disabled": false,
+            "disabled": true,
             "grouped": false,
             "appliesTo": [
                 "main_frame"
@@ -117,7 +117,7 @@
             "redirectUrl": "https://bibliogram.pussthecat.org/p/$1",
             "patternType": "R",
             "processMatches": "noProcessing",
-            "disabled": false,
+            "disabled": true,
             "grouped": false,
             "appliesTo": [
                 "main_frame"
@@ -134,6 +134,57 @@
             "redirectUrl": "$2",
             "patternType": "R",
             "processMatches": "urlDecode",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Reddit to Old reddit",
+            "exampleUrl": "https://reddit.com/r/RedditFuckingSucks",
+            "exampleResult": "https://old.reddit.com/r/RedditFuckingSucks",
+            "error": null,
+            "includePattern": "https://(|www\\.)reddit.com/(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://old.reddit.com/$2",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Medium to Scribe",
+            "exampleUrl": "https://medium.com/@.anders/learnings-from-our-8-years-of-kubernetes-in-production-two-major-cluster-crashes-ditching-self-0257c09d36cd",
+            "exampleResult": "https://scribe.rip/@.anders/learnings-from-our-8-years-of-kubernetes-in-production-two-major-cluster-crashes-ditching-self-0257c09d36cd",
+            "error": null,
+            "includePattern": "^(?:https?://)medium.com/(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://scribe.rip/$1",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Medium to Scribe subdomain",
+            "exampleUrl": "https://philosophygeek.medium.com/why-g%C3%B6del-escher-bach-is-the-most-influential-book-in-my-life-49d785a4e428",
+            "exampleResult": "https://scribe.rip/@philosophygeek/why-g%C3%B6del-escher-bach-is-the-most-influential-book-in-my-life-49d785a4e428",
+            "error": null,
+            "includePattern": "^(?:https?://)(.*)\\.medium.com/(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://scribe.rip/@$1/$2",
+            "patternType": "R",
+            "processMatches": "noProcessing",
             "disabled": false,
             "grouped": false,
             "appliesTo": [
