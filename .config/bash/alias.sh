@@ -26,7 +26,7 @@ alias ci3='nvim $HOME/.config/i3/config'
 alias cx='nvim $XDG_CONFIG_HOME/X11/xinitrc'
 
 # connect to server on home network
-alias cs='ssh server-mads.lan; test "$?" -eq 255 && (ssh 192.168.1.150; test "$?" -eq 255 && ssh home.madsmogensen.dk)'
+alias cs='ssh server-mads.lan; test "$?" -eq 255 && ssh home.madsmogensen.dk'
 
 # connect to desktop
 alias cde='ssh desktop-mads.router.lan'
