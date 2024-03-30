@@ -18,8 +18,5 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # dotnet root
 export DOTNET_ROOT="/opt/dotnet"
 
-# Make minecraft use pulse
-export ALSOFT_DRIVERS="pulse"
-
 # Use nvidia libva driver
 [ "$HOSTNAME" = "DESKTOP-MADS" ] && export LIBVA_DRIVER_NAME=nvidia
