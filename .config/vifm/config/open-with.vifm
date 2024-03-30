@@ -18,7 +18,7 @@ filextype {*.djvu},<image/vnd.djvu>
 " audio
 filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.aif},<audio/*>
         \ {Play using mpv}
-        \ mpv %f
+        \ mpv -vo gpu %f
 
 
 " video
