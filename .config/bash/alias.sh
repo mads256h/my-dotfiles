@@ -4,6 +4,12 @@
 # Aliases
 #
 
+
+alias ls='ls --color=auto'
+
+alias grep='grep --color=auto --line-number --with-filename'
+
+
 # bashrc configuration shortcut
 alias cb='nvim $HOME/.bashrc'
 
@@ -40,16 +46,10 @@ alias ck='ssh -X -p 26666 mads@127.0.0.1'
 # dotfiles bare git repo shortcut
 alias dotgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# source esp sdk
-alias esp='source /opt/esp-idf/export.sh'
-
-# filemanager (vifm)
-alias fm='vifmrun'
-
 # get public ip address
 alias myip='curl ipaddress.sh'
 
-# connect to sshfs when on home network
+# connect to sshfs
 alias s='sshfs -o idmap=user,reconnect -C mads@server-mads.lan:/mnt/share ~/mnt/ || sshfs -o idmap=user,reconnect -C mads@home.madsmogensen.dk:/mnt/share ~/mnt/'
 
 # unmount sshfs
