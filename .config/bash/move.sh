@@ -41,6 +41,10 @@ export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 export MAXIMA_USERDIR="$XDG_CONFIG_HOME"/maxima
 
 
+# mplayer
+export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
+
+
 # ncurses
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
