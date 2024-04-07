@@ -21,15 +21,15 @@ gaps inner 15
 gaps outer 15
 
 
-# Use pactl to adjust volume in PulseAudio.
+# Use wpctl to adjust volume in PipeWire.
 set $refresh_media pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 10%+
 bindsym XF86AudioRaiseVolume --release exec --no-startup-id $refresh_media
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-
 bindsym XF86AudioLowerVolume --release exec --no-startup-id $refresh_media
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMute --release exec --no-startup-id $refresh_media
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 bindsym XF86AudioMicMute --release exec --no-startup-id $refresh_media
 
 # Use playerctl to control media
