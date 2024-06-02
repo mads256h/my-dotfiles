@@ -9,7 +9,8 @@ ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 numlockx
 xrdb "$XDG_CONFIG_HOME"/X11/Xresources
 eval $(xrdb-env)
-[ "$HOSTNAME" = "DESKTOP-MADS" ] && /usr/lib/kdeconnectd &
+[ "$HOSTNAME" = "DESKTOP-MADS" ] && kdeconnectd &
+[ "$HOSTNAME" = "DESKTOP-MADS" ] && caffeine &
 wp &
 dunst &
 [ "$HOSTNAME" = "laptop-mads" ] && picom -b
