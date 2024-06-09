@@ -12,7 +12,7 @@ LOWB_LABEL=${LOWB_LABEL:-"❗"}
 
 battery="/sys/class/power_supply/BAT$BAT_NUMBER"
 
-[ -d "$battery" ] || exit
+[ -d "$battery" ] || exit 0
 
 
 bat_status=$(cat "$battery/status")
