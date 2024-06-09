@@ -52,6 +52,9 @@ alias myip='curl ipaddress.sh'
 # connect to sshfs
 alias s='sshfs -o idmap=user,reconnect -C mads@server-mads.lan:/mnt/share ~/mnt/ || sshfs -o idmap=user,reconnect -C mads@home.madsmogensen.dk:/mnt/share ~/mnt/'
 
+# connect to server by default
+[ "$HOSTNAME" = "DESKTOP-MADS" ] && alias tremc='tremc -c 10.0.1.120'
+
 # unmount sshfs
 alias us='fusermount3 -u ~/mnt'
 
