@@ -40,5 +40,5 @@ export PS1="\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\u\[$(tput sg
 
 # Start X automagically on tty1
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec startx > "$XDG_CACHE_HOME/startx.log" 2>&1
+  exec startx 2>&1 | ts "%Y-%m-%d %H:%M:%S" > "$XDG_CACHE_HOME/startx.log"
 fi
