@@ -236,7 +236,7 @@ bar {
 }
 
 # Spotify is buggy as its class is not set at startup
-# Workaround: Always move it to worspace 2
+# Workaround: Always move it to workspace 2
 assign [class="Spotify"] $ws2
 for_window [class="Spotify"] move to workspace $ws2
 assign [class="thunderbird"] $ws9
@@ -245,5 +245,6 @@ assign [class="KeePassXC"] $ws10
 exec --no-startup-id librewolf "https://discord.com/channels/@me"
 exec --no-startup-id spotify
 exec --no-startup-id thunderbird
+exec --no-startup-id start-keepassxc
 
 exec --no-startup-id start-kde-connect-indicator
