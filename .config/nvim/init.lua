@@ -115,7 +115,7 @@ local cmp_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_lsp.default_capabilities()
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'rust_analyzer', 'pyright', 'tsserver', 'texlab', 'bashls', 'cmake', 'cssls', 'eslint', 'html',
+local servers = { 'rust_analyzer', 'pyright', 'ts_ls', 'texlab', 'bashls', 'cmake', 'cssls', 'eslint', 'html',
   'jsonls', 'hls', 'lua_ls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -202,11 +202,11 @@ cmp.setup {
 -- Gitsigns
 require('gitsigns').setup {
   signs = {
-    add = { hl = 'GitGutterAdd', text = '+' },
-    change = { hl = 'GitGutterChange', text = '~' },
-    delete = { hl = 'GitGutterDelete', text = '_' },
-    topdelete = { hl = 'GitGutterDelete', text = '‾' },
-    changedelete = { hl = 'GitGutterChange', text = '~' },
+    add = { text = '+' },
+    change = { text = '~' },
+    delete = { text = '_' },
+    topdelete = { text = '‾' },
+    changedelete = { text = '~' },
   },
 }
 
