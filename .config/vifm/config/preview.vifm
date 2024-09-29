@@ -105,6 +105,10 @@ fileviewer {*.docx},<application/vnd.openxmlformats-officedocument.wordprocessin
 fileviewer {*.dem}
         \ demoinfo %f
 
+" vpk
+fileviewer {*.vpk}
+        \ unvpk -h -l %f
+
 
 " json
 fileviewer {*.json},<application/json,text/json>
