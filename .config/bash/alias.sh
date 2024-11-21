@@ -9,6 +9,10 @@ alias ls='ls --color=auto'
 
 alias grep='grep --color=auto --line-number --with-filename'
 
+alias ip='ip -color=auto'
+
+alias diff='diff --color=auto'
+
 
 # bashrc configuration shortcut
 alias cb='nvim $HOME/.bashrc'
