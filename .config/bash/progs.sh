@@ -19,5 +19,8 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # dotnet root
 export DOTNET_ROOT="/opt/dotnet"
 
+# Make touchpad more responsive on firefox
+export MOZ_USE_XINPUT2=1
+
 # Use nvidia libva driver
 [ "$HOSTNAME" = "DESKTOP-MADS" ] && export LIBVA_DRIVER_NAME=nvidia
