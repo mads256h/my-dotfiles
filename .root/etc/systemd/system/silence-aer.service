@@ -2,6 +2,7 @@
 
 [Unit]
 Description=Silence AER errors
+Before=confidentiality.service
 After=systemd-modules-load.service
 
 [Service]

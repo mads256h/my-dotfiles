@@ -2,6 +2,7 @@
 
 [Unit]
 Description=Disable discrete GPU
+Before=confidentiality.service
 After=systemd-modules-load.service
 
 [Service]

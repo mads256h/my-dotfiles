@@ -1,6 +1,4 @@
-# Enable confidentiality mode in the lockdown lsm
-# to prevent changes to the kernel.
-# This is done after module loading has occured.
+# Disable the discrete nvidia GPU to save power.
 
 [Unit]
 Description=Enable confidentiality mode
