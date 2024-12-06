@@ -62,6 +62,12 @@ export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 export OCTAVE_HISTFILE="$XDG_CACHE_HOME"/octave_hist
 
 
+# python
+export PYTHON_HISTORY=$XDG_STATE_HOME/python/history
+export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
+export PYTHONUSERBASE=$XDG_DATA_HOME/python
+
+
 # Rust cargo
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 
