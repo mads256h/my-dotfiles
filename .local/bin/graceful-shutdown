@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -x
+set -e
+
+# Graceful poweroff
+
+function waitForAllClosed {
+  while [[ $(wmctrl -l 2>&1 | wc -l) -gt 0 ]]; do
+    sleep 0.5s
+  done
+}
+
+export -f waitForAllClosed
+
+if [[ -n "${DISPLAY}" ]] && pidof -q Xorg; then
+  i3-msg '[class="."] kill'
+  echo "$1"
+  timeout 30s bash -c waitForAllClosed "$1"
+fi
+
+systemctl "$1"
