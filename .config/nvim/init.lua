@@ -116,7 +116,7 @@ local cmp_lsp = require("cmp_nvim_lsp")
 local capabilities = cmp_lsp.default_capabilities()
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'rust_analyzer', 'pyright', 'ts_ls', 'texlab', 'bashls', 'cmake', 'cssls', 'eslint', 'html',
+local servers = { 'rust_analyzer', 'pyright', 'ts_ls', 'bashls', 'cmake', 'cssls', 'eslint', 'html',
   'jsonls', 'hls', 'lua_ls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -125,26 +125,32 @@ for _, lsp in ipairs(servers) do
 end
 
 lspconfig.omnisharp.setup {
-  cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(pid) },
+  cmd = { "omnisharp" },
   capabilities = capabilities,
 }
 
--- Check if we are editing a esp32 project
-local current_file = vim.fn.expand('%:p')
-if current_file ~= "" and lspconfig.util.root_pattern('sdkconfig')(current_file) ~= nil then
-  -- Esp32 specific stuff
-  lspconfig.clangd.setup {
-    capabilities = capabilities,
-    cmd = {
-      "clangd",
-      '--query-driver=' .. os.getenv("HOME") .. '/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/**/bin/xtensa-esp32-elf-*',
-    },
+lspconfig.clangd.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.texlab.setup {
+  capabilities = capabilities,
+  settings = {
+    texlab = {
+      chktex = {
+        onEdit = true,
+        onOpenAndSave = true
+      }
+    }
   }
-else
-  lspconfig.clangd.setup {
-    capabilities = capabilities,
-  }
-end
+}
+
+lspconfig.ltex.setup {
+  cmd = { "ltex-ls" },
+  filetypes = { "markdown", "text", "gitcommit", "tex", "bibtex" },
+  capabilities = capabilities,
+  flags = { debounce_text_changes = 300 },
+}
 -- Set completeopt to have a better completion experience
 --vim.o.completeopt = 'menuone,noselect'
 
