@@ -90,6 +90,12 @@ interval=30
 separator=false
 
 [disk]
+label=💽
+instance=/mnt/hdd
+interval=30
+separator=false
+
+[disk]
 label=💾
 instance=/
 #DIR=/mnt/data
