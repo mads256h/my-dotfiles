@@ -95,13 +95,21 @@ fileviewer {*.7z},<application/x-7z-compressed>
 
 " documents
 
+" odt
+fileviewer {*.odt}
+        \ odt2txt %c
+
 " doc
 fileviewer {*.doc},<application/msword>
         \ catdoc %c
 
 " docx
-fileviewer {*.docx},<application/vnd.openxmlformats-officedocument.wordprocessingml.document>
+fileviewer {*.docx,*.docm},<application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-word.document.macroEnabled.12>
         \ docx2txt %f -
+
+" spreadsheets
+fileviewer {*.ods,*.xlsx,*.xlsm},<application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12>
+        \ spreadsheet-to-csv %c
 
 
 " source engine demo

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+filename=$(basename -- "$1")
+filename="${filename%.*}"
+
+TEMP_DIR="$(mktemp -d)"
+
+libreoffice --convert-to csv --outdir "${TEMP_DIR}" "$1" > /dev/null
+
+csvformat -T "${TEMP_DIR}/${filename}.csv"
+
+rm -r "${TEMP_DIR}"
