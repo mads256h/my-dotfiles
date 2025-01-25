@@ -78,6 +78,9 @@ fileviewer {*.tar.bz2,*.tbz2}
 fileviewer {*.tar.txz,*.txz}
         \ xz --list %c
 
+fileviewer {*.tar.zst,*.zst}
+        \ tar -t --zstd -f %c
+
 fileviewer {*.tar},<application/x-tar>
         \ tar -tf %c
 
