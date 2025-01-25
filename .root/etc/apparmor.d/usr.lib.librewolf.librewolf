@@ -4,25 +4,27 @@
 # Modifications: Mads Mogensen <mail@madsmogensen.dk>
 # Last change: Sep 20, 2022
 
+abi <abi/3.0>,
+
 # Declare an apparmor variable to help with overrides
 @{MOZ_LIBDIR}=/usr/lib/librewolf
 
 # User directories, with write access
 # (downloads and desktop directories):
 @{USER_DIR} =  @{HOME}/Desktop
-@{USER_DIR} += @{HOME}/Documents
-@{USER_DIR} += @{HOME}/Downloads
-@{USER_DIR} += @{HOME}/Music
-@{USER_DIR} += @{HOME}/Pictures
-@{USER_DIR} += @{HOME}/Videos
+@{USER_DIR} += @{HOME}/annex/Documents
+@{USER_DIR} += @{HOME}/annex/Downloads
+@{USER_DIR} += @{HOME}/annex/Music
+@{USER_DIR} += @{HOME}/annex/Pictures
+@{USER_DIR} += @{HOME}/annex/Videos
 @{USER_DIR} += @{HOME}/GitHub
 
-#include <tunables/global>
+include <tunables/global>
 
-/usr/lib/librewolf/librewolf {
+profile librewolf "/usr/lib/librewolf/librewolf" {
   include <abstractions/audio>
   include <abstractions/base>
-  include <abstractions/dbus-session-strict>
+  include <abstractions/dbus-session>
   include <abstractions/dconf>
   include <abstractions/dri-enumerate>
   include <abstractions/freedesktop.org>
@@ -30,6 +32,7 @@
   include <abstractions/gnome>
   include <abstractions/gtk>
   include <abstractions/ibus>
+  include <abstractions/video>
   include <abstractions/vulkan>
   include <abstractions/nameservice>
   include <abstractions/nvidia>
@@ -38,6 +41,9 @@
   include <abstractions/X>
   include <abstractions/mozilla>
 
+  # sys_admin might not be needed in apparmor v4
+  capability sys_admin,
+  capability sys_chroot,
 
   # Home
   owner @{HOME}/ r,
@@ -73,4 +79,19 @@
   # Self binaries
   /usr/lib/librewolf/librewolf ix,
   /usr/lib/librewolf/glxtest Ux,
+  /usr/lib/librewolf/vaapitest Ux,
+
+  # libva
+  /etc/libva.conf r,
+
+  # Allow reading cpu stuff
+  /sys/devices/system/cpu/**/* r,
+  /sys/fs/cgroup/user.slice/user-@{uid}.slice/**/cpu.max r,
+
+  # proc stuff
+  owner /proc/@{pid}/{gid,uid}_map w,
+  owner /proc/@{pid}/setgroups w,
+
+  # Shut the fuck up about reading /
+  deny / r,
 }
