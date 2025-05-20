@@ -57,7 +57,7 @@ profile spotify "/opt/spotify/spotify" {
   owner @{PROC}/@{pid}/clear_refs w,
   @{PROC}/sys/fs/inotify/max_user_watches r,
   @{PROC}/sys/kernel/yama/ptrace_scope r,
-  @{PROC}/proc/pressure/* r,
+  @{PROC}/pressure/* r,
 
   # sys
   @{sys}/devices/system/cpu/* r,
