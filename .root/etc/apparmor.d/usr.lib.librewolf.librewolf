@@ -51,6 +51,8 @@ profile librewolf "/usr/lib/librewolf/librewolf" {
   owner @{USER_DIR}/** rw,
   @{HOME}/mnt/ r,
   @{HOME}/mnt/** r,
+  @{HOME}/annex/.git/annex/ r,
+  @{HOME}/annex/.git/annex/** r,
 
   # noisy
   deny @{HOME}/.local/share/recently-used.xbel r,
