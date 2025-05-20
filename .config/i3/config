@@ -74,7 +74,7 @@ bindsym $mod+w exec --no-startup-id $BROWSER
 bindsym $mod+s exec --no-startup-id spotify
 
 # take a screenshot
-bindsym $mod+t exec --no-startup-id maim -s ~/Pictures/$(date +%s).png
+bindsym $mod+t exec --no-startup-id maim --hidecursor -s ~/annex/Pictures/$(date +%s).png
 
 # Close notification
 bindsym $mod+Ctrl+space exec --no-startup-id dunstctl close

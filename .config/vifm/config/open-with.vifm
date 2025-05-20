@@ -56,3 +56,7 @@ filetype {*.torrent},<application/x-bittorrent>
 " office
 filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},<application/vnd.openxmlformats-officedocument.*,application/msword,application/vnd.ms-excel>
         \ libreoffice %f &
+
+" geogebra
+filextype {*.ggb},<application/vnd.geogebra.file>
+        \ geogebra %c &
