@@ -6,7 +6,7 @@
 
 include <tunables/global>
 
-"/usr/lib/thunderbird/thunderbird" {
+profile thunderbird "/usr/lib/thunderbird/thunderbird" {
   include <abstractions/audio>
   include <abstractions/base>
   include <abstractions/dbus-session-strict>
@@ -32,10 +32,14 @@ include <tunables/global>
   # Home
   owner @{HOME}/ r,
   owner @{HOME}/** r,
-  owner @{HOME}/Downloads/** rw,
+  owner @{HOME}/annex/Downloads/** rw,
 
   # Config
   owner @{HOME}/.thunderbird/** rwk,
   owner @{HOME}/.cache/thunderbird/** rwk,
+
+  # Allow reading cpu stuff
+  /sys/devices/system/cpu/**/* r,
+  /sys/fs/cgroup/user.slice/user-@{uid}.slice/**/cpu.max r,
 }
 
