@@ -20,6 +20,9 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 # docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
+# dotnet
+export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+
 
 # Golang
 export GOPATH="$XDG_DATA_HOME"/go
@@ -61,6 +64,12 @@ export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 # octave
 export OCTAVE_HISTFILE="$XDG_CACHE_HOME"/octave_hist
 
+# omnisharp
+export OMNISHARPHOME="$XDG_CONFIG_HOME"/omnisharp
+
+
+# parallel
+export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
 
 # python
 export PYTHON_HISTORY=$XDG_STATE_HOME/python/history
