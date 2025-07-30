@@ -13,15 +13,6 @@ www.musixmatch.com##._379Lbkm0U58yJgAGxIIOJ5
 www.musixmatch.com##.new.mxm-upselling-content
 
 ! Wikia
-fandom.com##.pathfinder-wrapper.gzTwlZ.sc-gtsrHT
-fandom.com##.pathfinder-wrapper.dvlmvB.sc-jrQzAO
-fandom.com###WikiaBar
-fandom.com##.global-navigation
-fandom.com###mixed-content-footer
-fandom.com##.mcf-wrapper
-fandom.com##.global-footer
-fandom.com##.global-registration-buttons
-fandom.com###highlight__main-container
 ! Make it fill the whole page after removing the sidebar
 fandom.com##.main-container:style(margin-left:0 !important)
 fandom.com##.main-container:style(width:100% !important)
